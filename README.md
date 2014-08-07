@@ -46,6 +46,12 @@ dict.addDocument("To be, or not to be: that is the question.");
 trace( dict.getDictionaryWords() );
 ```
 
+## String distance ##
+Using Levenshtein Distance calculation:
+```haxe
+trace( LevenshteinDistance.getDistance( "kitten", "sitting" ) );
+```
+
 # Tests #
 Some tests might be mising or incomplete due to the premature state of the project, but I try to keep them up to date.
 At the moment the tests run only on hx source. I try to support every output format of Haxe, but haven't compiled the tests for everything just yet.

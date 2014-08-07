@@ -5,16 +5,15 @@ import linguistics.*;
 import linguistics.tokenizers.*;
 import linguistics.languages.*;
 import linguistics.dictionaries.*;
+import linguistics.distances.LevenshteinDistance;
+
 
 class Playground
 {
     static public function main():Void {
 
-        var dict:Dictionary = new Dictionary();
-        dict.addDocument("A fool thinks himself to be wise, but a wise man knows himself to be a fool.");
-
-        trace( dict.getTotalWordCount() );
-        trace( dict.getWordCount() );
+        trace( LevenshteinDistance.getDistance( "kitten", "sitting" ) );
+        trace( LevenshteinDistance.getDistance( "Saturday", "Sunday" ) );
 
     }
 }

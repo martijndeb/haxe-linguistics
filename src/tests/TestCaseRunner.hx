@@ -2,6 +2,7 @@ package tests;
 
 import tests.TestCaseBasicTokenizer;
 import tests.TestCaseDictionary;
+import tests.TestCaseLevenshteinDistance;
 
 class TestCaseRunner {
 
@@ -11,6 +12,7 @@ class TestCaseRunner {
 
         runner.add( new TestCaseBasicTokenizer() );
         runner.add( new TestCaseDictionary() );
+        runner.add( new TestCaseLevenshteinDistance() );
 
         var success = runner.run();
 
