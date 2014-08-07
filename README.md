@@ -2,7 +2,7 @@ Scratching my own itch here. Needed some basic natural language processing tools
 I turned to NLTK and NaturalNode, which both are just for a single programming language. Sure you can work around that or wrap it,
 but that doesn't give me the fun of working with Haxe and picking my own layout pattern.
 
-I have no formal training in linguistics, but have created to multiple open source projects. Kinda making things up as I need them.
+I have no formal training in linguistics, but have contributed to multiple open source projects. Kinda making things up as I need them.
 Need something? Contribute or open a ticket!
 
 # Usage #
