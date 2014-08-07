@@ -2,6 +2,9 @@ Scratching my own itch here. Needed some basic natural language processing tools
 I turned to NLTK and NaturalNode, which both are just for a single programming language. Sure you can work around that or wrap it,
 but that doesn't give me the fun of working with Haxe and picking my own layout pattern.
 
+I have no formal training in linguistics, but have created to multiple open source projects. Kinda making things up as I need them.
+Need something? Contribute or open a ticket!
+
 # Usage #
 
 ## Installing ##
@@ -37,6 +40,7 @@ trace(tokenizer.tokenize("Nederlanders drinken 's morgens gemiddeld 2 koppen kof
 
 # Tests #
 Some tests might be mising or incomplete due to the premature state of the project, but I try to keep them up to date.
+At the moment the tests run only on hx source. I try to support every output format of Haxe, but haven't compiled the tests for everything just yet.
 
 ## Running tests ##
 Quickest way is to use haxe in interpreter mode
