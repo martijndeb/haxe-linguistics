@@ -2,7 +2,26 @@ Scratching my own itch here. Needed some basic natural language processing tools
 I turned to NLTK and NaturalNode, which both are just for a single programming language. Sure you can work around that or wrap it,
 but that doesn't give me the fun of working with Haxe and picking my own layout pattern.
 
-# Using #
+# Usage #
+
+## Installing ##
+You can git clone the repository directly, or use the latest version in haxelib.
+
+### Using haxelib ####
+```
+haxelib install haxe-linguistics
+```
+
+### Using haxelib git ####
+```
+haxelib git haxe-linguistics https://github.com/sexybiggetje/haxe-linguistics/
+```
+
+## Running your application ##
+Example applications have been included in the src/examples folder.
+```
+haxe -main my.namespace.Application -lib haxe-linguisticts --interp
+```
 
 ## Supported languages ##
 Since the beginning English (as main language) and Dutch have been supported. Want to contribute? Take a peek at the Dutch (nl) implementation and send a pull request.
@@ -21,6 +40,7 @@ Some tests might be mising or incomplete due to the premature state of the proje
 
 ## Running tests ##
 Quickest way is to use haxe in interpreter mode
+
 ```
 cd src/
 haxe --main tests.TestCaseRunner --interp
