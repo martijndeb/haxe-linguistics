@@ -38,6 +38,14 @@ var tokenizer:ITokenizer = Linguistics.getInstance().getBasicTokenizer();
 trace(tokenizer.tokenize("Nederlanders drinken 's morgens gemiddeld 2 koppen koffie."));
 ```
 
+## Dictionary ##
+A dictionary indexes tokenized words and keeps track of word count. By default it uses the raw token but you can specify to use the normalized token. If no tokenizer is specified it defaults to the BasicTokenizer for your given language.
+```haxe
+var dict:Dictionary = new Dictionary();
+dict.addDocument("To be, or not to be: that is the question.");
+trace( dict.getDictionaryWords() );
+```
+
 # Tests #
 Some tests might be mising or incomplete due to the premature state of the project, but I try to keep them up to date.
 At the moment the tests run only on hx source. I try to support every output format of Haxe, but haven't compiled the tests for everything just yet.
