@@ -25,9 +25,10 @@ class Token implements IToken {
 
     }
 
-    public function normalize():Void {
+    public function normalize():String {
 
         normalizedToken = token;
+        return normalizedToken;
 
     }
 

@@ -1,12 +1,8 @@
-/* This file is basically which I use while developing. Other examples might be more stable. */
 package examples;
 
-import linguistics.*;
-import linguistics.tokenizers.*;
-import linguistics.languages.*;
 import linguistics.dictionaries.*;
 
-class Playground
+class ExampleDictionary
 {
     static public function main():Void {
 
@@ -16,6 +12,9 @@ class Playground
         dict.addDocument("Suspicion always haunts the guilty mind; The thief doth fear each bush an officer.");
 
         trace( dict.getDictionaryWords() );
+        trace( dict.getDictionary() );
+        trace( "Dictionary entries: " + dict.getWordCount() );
+        trace( "Total words: " + dict.getTotalWordCount() );
 
     }
 }

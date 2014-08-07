@@ -9,7 +9,7 @@ interface IToken {
     var normalizedToken:String;
 
     function isValidFor( myTokenString:String ):Bool;
-    function normalize():Void;
+    function normalize():String;
     function toString():String;
 
 }
