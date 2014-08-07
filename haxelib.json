@@ -1,0 +1,12 @@
+{
+  "name": "haxe-linguistics",
+  "url" : "https://github.com/sexybiggetje/haxe-linguistics/",
+  "license": "MIT",
+  "tags": ["cross", "linguistics", "language", "nlp", "analysis"],
+  "description": "Linguistical analysis and natural language processing library for Haxe",
+  "version": "0.0.1",
+  "releasenote": "Initial release with basic tokenization for English and Dutch",
+  "contributors": ["sexybiggetje"],
+  "dependencies": {
+  }
+}
