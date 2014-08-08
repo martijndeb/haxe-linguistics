@@ -52,6 +52,24 @@ Using Levenshtein Distance calculation:
 trace( LevenshteinDistance.getDistance( "kitten", "sitting" ) );
 ```
 
+## Classification ##
+Currently there is an implementation for a Naive Bayes classificator.
+The classificator uses normalized tokens, and if no tokenizer is specified when calling the train method it will default to the BasicTokenizer specified for your language.
+Since there is no stemming or filtering support yet in this library tokens are unstemmed and unfiltered.
+
+Example is shamelessly copied from NaturalNode documentation.
+```haxe
+var classifier:IClassifier = new NaiveBayesClassifier();
+classifier.addDocument( "i am the long qqqq", "buy" );
+classifier.addDocument("buy the q's", "buy");
+classifier.addDocument("short gold", "sell");
+classifier.addDocument("sell gold", "sell");
+
+classifier.train();
+
+trace(classifier.classify('i am short silver'));
+```
+
 # Tests #
 Some tests might be mising or incomplete due to the premature state of the project, but I try to keep them up to date.
 At the moment the tests run only on hx source. I try to support every output format of Haxe, but haven't compiled the tests for everything just yet.
