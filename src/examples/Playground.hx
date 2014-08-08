@@ -3,7 +3,8 @@ package examples;
 
 import linguistics.*;
 import linguistics.tokenizers.*;
-import linguistics.languages.*;
+import linguistics.languages.Dutch;
+import linguistics.languages.English;
 import linguistics.dictionaries.*;
 import linguistics.distances.LevenshteinDistance;
 import linguistics.classifiers.IClassifier;
@@ -14,18 +15,11 @@ class Playground
 {
     static public function main():Void {
 
-        var classifier:IClassifier = new NaiveBayesClassifier();
-        classifier.addDocument( "i am the long qqqq", "buy" );
-        classifier.addDocument("buy the q's", "buy");
-        classifier.addDocument("short gold", "sell");
-        classifier.addDocument("sell gold", "sell");
+        Linguistics.getInstance().setLanguage(Dutch);
+        trace( Linguistics.getInstance().getLanguage().stopwords );
 
-        classifier.train();
+        var tokenizer:ITokenizer = Linguistics.getInstance().getBasicTokenizer();
+        trace(tokenizer.tokenize( "Ik heb alles wat je wilt" ));
 
-        // Sell should be best match
-        trace(classifier.classify('i am short silver'));
-
-        // Buy should be best match
-        trace(classifier.classify('i am long copper'));
     }
 }

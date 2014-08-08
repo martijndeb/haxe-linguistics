@@ -4,8 +4,8 @@
   "license": "MIT",
   "tags": ["cross", "linguistics", "language", "nlp", "analysis", "classification"],
   "description": "Linguistical analysis and natural language processing library for Haxe",
-  "version": "0.0.2",
-  "releasenote": "Adds support for Dictionaries, Naive Bayes classification and Levenshtein distance calculation",
+  "version": "0.0.3",
+  "releasenote": "Adds stopwords lists to English and Dutch, and adds support for stopword filtering in the BasicTokenizer",
   "contributors": ["sexybiggetje"],
   "dependencies": {
   }

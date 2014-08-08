@@ -55,7 +55,7 @@ trace( LevenshteinDistance.getDistance( "kitten", "sitting" ) );
 ## Classification ##
 Currently there is an implementation for a Naive Bayes classificator.
 The classificator uses normalized tokens, and if no tokenizer is specified when calling the train method it will default to the BasicTokenizer specified for your language.
-Since there is no stemming or filtering support yet in this library tokens are unstemmed and unfiltered.
+Since there is no stemming support yet in this library tokens are unstemmed and unfiltered.
 
 Example is shamelessly copied from NaturalNode documentation.
 ```haxe

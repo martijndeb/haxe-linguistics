@@ -21,7 +21,30 @@ class BasicTokenizer implements ITokenizer {
 
         } ).array();
 
-        return tokenSet;
+        var filteredSet:Array<IToken> = tokenSet;
+
+        if ( Linguistics.getInstance().getLanguage().stopwords != null ) {
+
+            filteredSet = tokenSet.filter(
+                function ( myToken:IToken ):Bool {
+                    var stopwords:Array<IToken> = Linguistics.getInstance().getLanguage().stopwords;
+                    for (stopword in stopwords.iterator()) {
+
+                        if ( stopword.isEqualToToken(myToken) ) {
+
+                            return false;
+
+                        }
+
+                    }
+
+                    return true;
+                }
+            );
+
+        }
+
+        return filteredSet;
 
     }
 

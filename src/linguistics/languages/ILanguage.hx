@@ -1,6 +1,7 @@
 package linguistics.languages;
 
 import linguistics.tokenizers.ITokenizer;
+import linguistics.tokenizers.tokens.IToken;
 
 interface ILanguage {
 
@@ -8,5 +9,8 @@ interface ILanguage {
 
     var basicTokenizer:Class<Dynamic>;
     var token:Class<Dynamic>;
+    var stopwords:Array<IToken>;
+
+    function createTokens():Void;
 
 }

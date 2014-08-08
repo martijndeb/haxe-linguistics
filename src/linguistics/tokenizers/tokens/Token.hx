@@ -38,4 +38,14 @@ class Token implements IToken {
 
     }
 
+    public function isEqualToToken( myToken:IToken, ?doNormalize:Bool ):Bool {
+
+        var compareTo:String = doNormalize == true ? myToken.normalize().toLowerCase() : myToken.token.toLowerCase();
+        var compareFrom:String = doNormalize == true ? normalize().toLowerCase() : token.toLowerCase();
+
+        return (compareFrom == compareTo);
+
+    }
+
+
 }

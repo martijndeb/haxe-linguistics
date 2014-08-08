@@ -47,6 +47,8 @@ class Linguistics {
 
         }
 
+        language.createTokens();
+
     }
 
     public function getLanguage():ILanguage {

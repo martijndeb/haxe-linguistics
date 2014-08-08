@@ -11,5 +11,6 @@ interface IToken {
     function isValidFor( myTokenString:String ):Bool;
     function normalize():String;
     function toString():String;
+    function isEqualToToken( myToken:IToken, ?doNormalize:Bool ):Bool;
 
 }
