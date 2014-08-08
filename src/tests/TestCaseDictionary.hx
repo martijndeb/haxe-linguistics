@@ -14,8 +14,8 @@ class TestCaseDictionary extends haxe.unit.TestCase {
         var dict:Dictionary = new Dictionary();
         dict.addDocument("A fool thinks himself to be wise, but a wise man knows himself to be a fool.");
 
-        this.assertEquals(17, dict.getTotalWordCount());
-        this.assertEquals(11, dict.getWordCount());
+        this.assertEquals(9, dict.getTotalWordCount());
+        this.assertEquals(6, dict.getWordCount());
 
     }
 
