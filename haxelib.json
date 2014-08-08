@@ -2,10 +2,10 @@
   "name": "haxe-linguistics",
   "url" : "https://github.com/sexybiggetje/haxe-linguistics/",
   "license": "MIT",
-  "tags": ["cross", "linguistics", "language", "nlp", "analysis"],
+  "tags": ["cross", "linguistics", "language", "nlp", "analysis", "classification"],
   "description": "Linguistical analysis and natural language processing library for Haxe",
   "version": "0.0.2",
-  "releasenote": "Initial release with basic tokenization for English and Dutch",
+  "releasenote": "Adds support for Dictionaries, Naive Bayes classification and Levenshtein distance calculation",
   "contributors": ["sexybiggetje"],
   "dependencies": {
   }
