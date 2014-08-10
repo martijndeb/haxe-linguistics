@@ -1,6 +1,8 @@
 package linguistics.utils;
 
-class StringUtility extends StringTools {
+class StringUtility {
+
+    public function new() {}
 
     public static function isEmpty( myString:String ):Bool {
 

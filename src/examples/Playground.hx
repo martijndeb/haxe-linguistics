@@ -11,6 +11,7 @@ import linguistics.classifiers.IClassifier;
 import linguistics.classifiers.NaiveBayesClassifier;
 import linguistics.tokenizers.filters.StopwordTokenFilter;
 import linguistics.tokenizers.tokens.IToken;
+import linguistics.utils.BasicStringBuilder;
 
 class Playground
 {
@@ -18,13 +19,11 @@ class Playground
 
         Linguistics.getInstance().setLanguage(Dutch);
 
-        var dict:Dictionary = new Dictionary();
+        var builder:BasicStringBuilder = new BasicStringBuilder();
         var tokenizer:ITokenizer = Linguistics.getInstance().getBasicTokenizer();
         var tokenSet:Array<IToken> = tokenizer.tokenize("Nederlanders drinken 's morgens gemiddeld 2 koppen koffie.");
 
-        dict.addTokens( tokenizer.applyFilter( tokenSet, StopwordTokenFilter ) );
-
-        trace( dict.getDictionaryWords() );
+        trace( builder.build( tokenSet ) );
 
     }
 }
