@@ -2,6 +2,7 @@ package linguistics.tokenizers;
 
 import linguistics.tokenizers.ITokenizer;
 import linguistics.tokenizers.tokens.IToken;
+import linguistics.tokenizers.filters.ITokenFilter;
 import linguistics.utils.StringUtility;
 
 using Lambda;
@@ -21,31 +22,17 @@ class BasicTokenizer implements ITokenizer {
 
         } ).array();
 
-        var filteredSet:Array<IToken> = tokenSet;
-
-        if ( Linguistics.getInstance().getLanguage().stopwords != null ) {
-
-            filteredSet = tokenSet.filter(
-                function ( myToken:IToken ):Bool {
-                    var stopwords:Array<IToken> = Linguistics.getInstance().getLanguage().stopwords;
-                    for (stopword in stopwords.iterator()) {
-
-                        if ( stopword.isEqualToToken(myToken) ) {
-
-                            return false;
-
-                        }
-
-                    }
-
-                    return true;
-                }
-            );
-
-        }
-
-        return filteredSet;
+        return tokenSet;
 
     }
+
+    public function applyFilter( myTokenSet:Array<IToken>, myTokenFilter:Class<ITokenFilter> ):Array<IToken> {
+
+        var tokenFilter:ITokenFilter = Type.createInstance( myTokenFilter, [] );
+
+        return tokenFilter.filter( myTokenSet );
+
+    }
+
 
 }

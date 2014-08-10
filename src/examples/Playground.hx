@@ -9,17 +9,22 @@ import linguistics.dictionaries.*;
 import linguistics.distances.LevenshteinDistance;
 import linguistics.classifiers.IClassifier;
 import linguistics.classifiers.NaiveBayesClassifier;
-
+import linguistics.tokenizers.filters.StopwordTokenFilter;
+import linguistics.tokenizers.tokens.IToken;
 
 class Playground
 {
     static public function main():Void {
 
         Linguistics.getInstance().setLanguage(Dutch);
-        trace( Linguistics.getInstance().getLanguage().stopwords );
 
+        var dict:Dictionary = new Dictionary();
         var tokenizer:ITokenizer = Linguistics.getInstance().getBasicTokenizer();
-        trace(tokenizer.tokenize( "Ik heb alles wat je wilt" ));
+        var tokenSet:Array<IToken> = tokenizer.tokenize("Nederlanders drinken 's morgens gemiddeld 2 koppen koffie.");
+
+        dict.addTokens( tokenizer.applyFilter( tokenSet, StopwordTokenFilter ) );
+
+        trace( dict.getDictionaryWords() );
 
     }
 }

@@ -38,7 +38,30 @@ class Dictionary {
         var tokenList:Array<IToken> = tokenizer.tokenize( myDocument );
         var iterator:Iterator<IToken> = tokenList.iterator();
 
-        for ( token in iterator) {
+        for ( token in iterator ) {
+
+            var tokenKey = normalizeTokens ? token.token : token.normalize();
+
+            if ( !dict.exists( tokenKey ) ) {
+
+                dict.set( tokenKey, 1 );
+                wordCount++;
+
+            } else {
+
+                dict.set( tokenKey, dict.get( tokenKey ) + 1 );
+
+            }
+
+            totalWordCount++;
+
+        }
+
+    }
+
+    public function addTokens( myTokenSet:Array<IToken> ):Void {
+
+        for ( token in myTokenSet.iterator() ) {
 
             var tokenKey = normalizeTokens ? token.token : token.normalize();
 

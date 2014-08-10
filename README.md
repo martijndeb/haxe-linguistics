@@ -38,11 +38,32 @@ var tokenizer:ITokenizer = Linguistics.getInstance().getBasicTokenizer();
 trace(tokenizer.tokenize("Nederlanders drinken 's morgens gemiddeld 2 koppen koffie."));
 ```
 
+Removing a set of tokens using a token filter
+```haxe
+Linguistics.getInstance().setLanguage(Dutch);
+var tokenizer:ITokenizer = Linguistics.getInstance().getBasicTokenizer();
+var tokenSet:Array<IToken> = tokenizer.tokenize("Nederlanders drinken 's morgens gemiddeld 2 koppen koffie.");
+trace( tokenizer.applyFilter( StopwordTokenFilter ) );
+```
+
 ## Dictionary ##
 A dictionary indexes tokenized words and keeps track of word count. By default it uses the raw token but you can specify to use the normalized token. If no tokenizer is specified it defaults to the BasicTokenizer for your given language.
 ```haxe
 var dict:Dictionary = new Dictionary();
 dict.addDocument("To be, or not to be: that is the question.");
+trace( dict.getDictionaryWords() );
+```
+
+Or by adding tokens directly (for example after filtering them)
+```haxe
+Linguistics.getInstance().setLanguage(Dutch);
+
+var dict:Dictionary = new Dictionary();
+var tokenizer:ITokenizer = Linguistics.getInstance().getBasicTokenizer();
+var tokenSet:Array<IToken> = tokenizer.tokenize("Nederlanders drinken 's morgens gemiddeld 2 koppen koffie.");
+
+dict.addTokens( tokenizer.applyFilter( tokenSet, StopwordTokenFilter ) );
+
 trace( dict.getDictionaryWords() );
 ```
 
