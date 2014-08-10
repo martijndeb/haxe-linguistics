@@ -35,7 +35,7 @@ class Linguistics {
 
     }
 
-    public function setLanguage( ?myLanguage:Class<Dynamic> ):Void {
+    public function setLanguage( ?myLanguage:Class<ILanguage> ):Void {
 
         if ( myLanguage == null ) {
 
