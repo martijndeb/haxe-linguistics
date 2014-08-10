@@ -8,7 +8,7 @@ class Frisian implements ILanguage {
 
     public var name:String = "Frisian";
 
-    public var basicTokenizer:Class<Dynamic> = linguistics.tokenizers.BasicTokenizer;
+    public var basicTokenizer:Class<Dynamic> = linguistics.languages.fry.BasicTokenizerFRY;
     public var token:Class<Dynamic> = linguistics.tokenizers.tokens.Token;
 
     public var stopwords:Array<IToken>;
