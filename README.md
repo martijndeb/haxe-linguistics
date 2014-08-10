@@ -82,13 +82,13 @@ Example is shamelessly copied from NaturalNode documentation.
 ```haxe
 var classifier:IClassifier = new NaiveBayesClassifier();
 classifier.addDocument( "i am the long qqqq", "buy" );
-classifier.addDocument("buy the q's", "buy");
-classifier.addDocument("short gold", "sell");
-classifier.addDocument("sell gold", "sell");
+classifier.addDocument( "buy the q's", "buy" );
+classifier.addDocument( "short gold", "sell" );
+classifier.addDocument( "sell gold", "sell" );
 
 classifier.train();
 
-trace(classifier.classify('i am short silver'));
+trace(classifier.classify( "i am short silver" ));
 ```
 
 # Tests #
