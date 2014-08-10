@@ -27,7 +27,7 @@ haxe -main my.namespace.Application -lib haxe-linguisticts --interp
 ```
 
 ## Supported languages ##
-Since the beginning English (as main language) and Dutch have been supported. Want to contribute? Take a peek at the Dutch (nl) implementation and send a pull request.
+Since the beginning English (as main language), Dutch and German have been supported. Want to contribute? Take a peek at the Dutch (nl) implementation and send a pull request.
 
 ## Tokenizing ##
 Basic tokenizers are present for all current supported languages.

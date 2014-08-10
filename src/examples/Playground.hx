@@ -5,6 +5,7 @@ import linguistics.*;
 import linguistics.tokenizers.*;
 import linguistics.languages.Dutch;
 import linguistics.languages.English;
+import linguistics.languages.German;
 import linguistics.dictionaries.*;
 import linguistics.distances.LevenshteinDistance;
 import linguistics.classifiers.IClassifier;
@@ -17,13 +18,14 @@ class Playground
 {
     static public function main():Void {
 
-        Linguistics.getInstance().setLanguage(Dutch);
+        Linguistics.getInstance().setLanguage( German );
 
-        var builder:BasicStringBuilder = new BasicStringBuilder();
         var tokenizer:ITokenizer = Linguistics.getInstance().getBasicTokenizer();
-        var tokenSet:Array<IToken> = tokenizer.tokenize("Nederlanders drinken 's morgens gemiddeld 2 koppen koffie.");
+        var tokenSet:Array<IToken> = tokenizer.tokenize( "Das Eisen schmieden, solange es heiß ist" );
+        trace(tokenSet);
 
-        trace( builder.build( tokenSet ) );
+        tokenSet = tokenizer.applyFilter( tokenSet, StopwordTokenFilter );
 
+        trace(tokenSet);
     }
 }

@@ -6,6 +6,7 @@ import linguistics.tokenizers.tokens.IToken;
 import linguistics.tokenizers.filters.StopwordTokenFilter;
 import linguistics.languages.Dutch;
 import linguistics.languages.English;
+import linguistics.languages.German;
 
 using Lambda;
 class TestCaseBasicTokenizer extends haxe.unit.TestCase {
@@ -39,6 +40,20 @@ class TestCaseBasicTokenizer extends haxe.unit.TestCase {
 
     }
 
+     public function testTokenizeGerman():Void {
+
+        Linguistics.getInstance().setLanguage( German );
+        var tokenizer:ITokenizer = Linguistics.getInstance().getBasicTokenizer();
+
+        this.assertEquals(
+            "Das Eisen schmieden solange es heiß ist",
+            tokenizer.tokenize( "Das Eisen schmieden, solange es heiß ist" ).map(
+                function(v):String { return v.toString(); }
+            ).join(" ")
+        );
+
+    }
+
     public function testTokenizeFilteredEnglish():Void {
 
         Linguistics.getInstance().setLanguage( English );
@@ -65,6 +80,23 @@ class TestCaseBasicTokenizer extends haxe.unit.TestCase {
 
         this.assertEquals(
             "'s morgens gemiddeld 2 koppen koffie drinken",
+
+            tokenSet.map(
+                function(v):String { return v.toString(); }
+            ).join(" ")
+        );
+
+    }
+
+     public function testTokenizeFilteredGerman():Void {
+
+        Linguistics.getInstance().setLanguage( German );
+        var tokenizer:ITokenizer = Linguistics.getInstance().getBasicTokenizer();
+        var tokenSet:Array<IToken> = tokenizer.tokenize( "Das Eisen schmieden, solange es heiß ist" );
+        tokenSet = tokenizer.applyFilter( tokenSet, StopwordTokenFilter );
+
+        this.assertEquals(
+            "Eisen schmieden solange heiß",
 
             tokenSet.map(
                 function(v):String { return v.toString(); }
