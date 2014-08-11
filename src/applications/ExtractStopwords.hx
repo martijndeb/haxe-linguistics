@@ -43,7 +43,7 @@ class ExtractStopwords
 
             for ( word in list.keys() ) {
 
-                Sys.println( word + "," + list.get( word ) );
+                Sys.println( list.get( word ) + "," + word );
 
             }
 
