@@ -6,7 +6,7 @@ class BasicTokenizerFRY extends BasicTokenizer {
 
     public function new() {
 
-        tokenExpression = ~/[^a-zA-Z0-9_\-âêéôûúÂÊÉÔÛÚ]+/g;
+        tokenExpression = ~/[^a-zA-Z0-9_\-âêîôûáéíóúÂÊÎÔÛÁÉÍÓÚ]+/g;
 
     }
 
