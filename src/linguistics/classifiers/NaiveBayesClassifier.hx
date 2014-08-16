@@ -6,7 +6,7 @@ import linguistics.classifiers.Classification;
 import linguistics.tokenizers.ITokenizer;
 import linguistics.tokenizers.tokens.IToken;
 
-// Todo: Classifiers would greatly benefit from stemming and filtering words.
+// Todo: Classifiers would greatly benefit from stemming.
 // Todo: trainToken method can be optimized
 class NaiveBayesClassifier implements IClassifier {
 
