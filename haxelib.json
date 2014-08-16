@@ -4,8 +4,8 @@
   "license": "MIT",
   "tags": ["cross", "linguistics", "language", "nlp", "analysis", "classification"],
   "description": "Linguistical analysis and natural language processing library for Haxe",
-  "version": "0.0.3",
-  "releasenote": "Adds German as a first citizen language. Adds BasicStringBuilder utility for use with the BasicTokenizer. Externalized token filtering from tokenizers to ITokenFilter instances.",
+  "version": "0.1.0",
+  "releasenote": "Adds Frisian language support, BasicStringBuilder, separation of filtering and tokenizing, StopwordTokenFilter. Updated tests.",
   "contributors": ["sexybiggetje"],
   "dependencies": {
   }

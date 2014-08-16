@@ -27,7 +27,7 @@ haxe -main my.namespace.Application -lib haxe-linguisticts --interp
 ```
 
 ## Supported languages ##
-Since the beginning English (as main language), Dutch and German have been supported. Want to contribute? Take a peek at the Dutch (nl) implementation and send a pull request.
+Since the beginning English (as main language), Dutch and German have been supported as first class citizens, I added basic support for the Frisian language as a second class citizen. Want to contribute? Take a peek at the Dutch (nl) implementation and send a pull request.
 
 ## Tokenizing ##
 Basic tokenizers are present for all current supported languages.
@@ -102,3 +102,9 @@ Quickest way is to use haxe in interpreter mode
 cd src/
 haxe --main tests.TestCaseRunner --interp
 ```
+
+# Roadmap #
+- Nested tokenization allowing tokens to have a parent and children. (Opening doors for a Sentence or quotation token).
+- Applying tags to tokens and being able to filter them based on a token. (This differs from classification, but a classification could be a tag).
+- Stemming of languages. (Porter stemmer would be sufficient).
+- Parts of speech tagging. (This would require stemming and POS dictionaries).
