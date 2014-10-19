@@ -104,6 +104,8 @@ haxe --main tests.TestCaseRunner --interp
 ```
 
 # Roadmap #
+- Support for n-grams
+- Language detection
 - Nested tokenization allowing tokens to have a parent and children. (Opening doors for a Sentence or quotation token).
 - Applying tags to tokens and being able to filter them based on a token. (This differs from classification, but a classification could be a tag).
 - Stemming of languages. (Porter stemmer would be sufficient).
