@@ -72,9 +72,11 @@ class NaiveBayesClassifier implements IClassifier {
             probSum += prob;
 
             probs.push( new Classification(
+
                 label,
                 prob,
                 probabilityOfLabel( label )
+
             ) );
 
         }
@@ -82,7 +84,7 @@ class NaiveBayesClassifier implements IClassifier {
         var matchesPc:Bool = true;
         var i:Int = 0;
 
-        while (i < probs.length) {
+        while ( i < probs.length ) {
 
             if (probSum > 0) {
 
@@ -102,12 +104,13 @@ class NaiveBayesClassifier implements IClassifier {
 
         }
 
-        if (matchesPc) {
+        if ( matchesPc ) {
 
             i = 0;
-            while (i < probs.length) {
+            while ( i < probs.length ) {
 
-                probs[i].probability = 0;
+                probs[ i ].probability = 0;
+
                 i++;
 
             }

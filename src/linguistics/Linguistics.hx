@@ -46,6 +46,8 @@ class Linguistics {
 
             languageNames.push( languageInstance.name );
 
+            languageInstance = null;
+
         }
 
         return languageNames;
