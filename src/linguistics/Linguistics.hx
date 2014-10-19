@@ -1,7 +1,7 @@
 package linguistics;
 
 import linguistics.languages.ILanguage;
-import linguistics.languages.English;
+import linguistics.languages.*;
 
 import linguistics.tokenizers.ITokenizer;
 import linguistics.tokenizers.tokens.IToken;
@@ -32,6 +32,36 @@ class Linguistics {
         }
 
         return Linguistics.instance;
+
+    }
+
+    static public function getSupportedLanguages():Array<String> {
+
+        var languageNames:Array<String> = [];
+        var languagesList:Array<Class<ILanguage>> = Linguistics.getSupportedLanguageClasses();
+
+        for ( language in languagesList ) {
+
+            var languageInstance:ILanguage = Type.createInstance( language, [] );
+
+            languageNames.push( languageInstance.name );
+
+        }
+
+        return languageNames;
+
+    }
+
+    static public function getSupportedLanguageClasses():Array<Class<ILanguage>> {
+
+        return [
+
+            Dutch,
+            English,
+            Frisian,
+            German
+
+        ];
 
     }
 

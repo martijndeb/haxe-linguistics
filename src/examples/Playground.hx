@@ -18,14 +18,7 @@ class Playground
 {
     static public function main():Void {
 
-        Linguistics.getInstance().setLanguage( German );
+        trace( Linguistics.getSupportedLanguages() );
 
-        var tokenizer:ITokenizer = Linguistics.getInstance().getBasicTokenizer();
-        var tokenSet:Array<IToken> = tokenizer.tokenize( "Das Eisen schmieden, solange es heiß ist" );
-        trace(tokenSet);
-
-        tokenSet = tokenizer.applyFilter( tokenSet, StopwordTokenFilter );
-
-        trace(tokenSet);
     }
 }
