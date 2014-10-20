@@ -5,7 +5,7 @@
   "tags": ["cross", "linguistics", "language", "nlp", "analysis", "classification"],
   "description": "Linguistical analysis and natural language processing library for Haxe",
   "version": "0.1.1",
-  "releasenote": "",
+  "releasenote": "Adds Linguistics.getSupportedLanguage*",
   "contributors": ["sexybiggetje"],
   "dependencies": {
   }

@@ -9,6 +9,7 @@ class English implements ILanguage {
     public var name:String = "English";
 
     public var basicTokenizer:Class<Dynamic> = linguistics.tokenizers.BasicTokenizer;
+    public var lengthBasedTokenizer:Class<Dynamic> = linguistics.tokenizers.LengthBasedTokenizer;
     public var token:Class<Dynamic> = linguistics.tokenizers.tokens.Token;
 
     public var stopwords:Array<IToken>;

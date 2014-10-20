@@ -18,7 +18,11 @@ class Playground
 {
     static public function main():Void {
 
-        trace( Linguistics.getSupportedLanguages() );
+        Linguistics.getInstance().setLanguage(Dutch);
+        var tokenizer:ITokenizer = Linguistics.getInstance().getLengthBasedTokenizer(1);
+        var tokenSet:Array<IToken> = tokenizer.tokenize( "Ik wil 's morgens gemiddeld 2 koppen koffie drinken." );
+
+        trace( tokenSet );
 
     }
 }

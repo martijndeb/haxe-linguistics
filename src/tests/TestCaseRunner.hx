@@ -1,6 +1,7 @@
 package tests;
 
 import tests.TestCaseBasicTokenizer;
+import tests.TestCaseLengthBasedTokenizer;
 import tests.TestCaseDictionary;
 import tests.TestCaseLevenshteinDistance;
 
@@ -11,6 +12,7 @@ class TestCaseRunner {
         var runner = new haxe.unit.TestRunner();
 
         runner.add( new TestCaseBasicTokenizer() );
+        runner.add( new TestCaseLengthBasedTokenizer() );
         runner.add( new TestCaseDictionary() );
         runner.add( new TestCaseLevenshteinDistance() );
 

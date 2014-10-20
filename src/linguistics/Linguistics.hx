@@ -95,6 +95,12 @@ class Linguistics {
 
     }
 
+    public function getLengthBasedTokenizer( ?length ):ITokenizer {
+
+        return Type.createInstance( language.lengthBasedTokenizer, [ length ] );
+
+    }
+
     public function getToken( myTokenString:String, ?myDocumentIndex:Int, ?myRelativeIndex:Int ):IToken {
 
         return Type.createInstance( language.token, [myTokenString, myDocumentIndex, myRelativeIndex] );
