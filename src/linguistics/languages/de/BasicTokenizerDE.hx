@@ -6,7 +6,7 @@ class BasicTokenizerDE extends BasicTokenizer {
 
     public function new() {
 
-        tokenExpression = ~/[^a-zA-Z0-9_\-äöüÄÖÜß]+/g;
+        tokenExpression = German.basicTokenExpression;
 
     }
 

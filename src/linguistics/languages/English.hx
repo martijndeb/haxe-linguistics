@@ -6,10 +6,13 @@ import linguistics.tokenizers.tokens.IToken;
 
 class English implements ILanguage {
 
+    static public var basicTokenExpression:EReg = ~/[^a-zA-Z0-9_\-]+/g;
+
     public var name:String = "English";
 
     public var basicTokenizer:Class<Dynamic> = linguistics.tokenizers.BasicTokenizer;
     public var lengthBasedTokenizer:Class<Dynamic> = linguistics.tokenizers.LengthBasedTokenizer;
+
     public var token:Class<Dynamic> = linguistics.tokenizers.tokens.Token;
 
     public var stopwords:Array<IToken>;

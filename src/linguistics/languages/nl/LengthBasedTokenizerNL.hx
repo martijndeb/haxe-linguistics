@@ -8,7 +8,7 @@ class LengthBasedTokenizerNL extends LengthBasedTokenizer {
 
         super( length );
 
-        tokenExpression = ~/[^a-zA-Z0-9_\-'âêîôûàèìòùëïöüŸáéíóúýÂÊÎÔÛÀÈÌÒÙËÏÖÜŸÁÉÍÓÚÝ]+/g;
+        tokenExpression = Dutch.basicTokenExpression;
 
     }
 

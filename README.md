@@ -100,7 +100,7 @@ Quickest way is to use haxe in interpreter mode
 
 ```
 cd src/
-haxe --main tests.TestCaseRunner --interp
+haxe -main tests/TestCaseRunner.hx --interp
 ```
 
 # Roadmap #
@@ -110,3 +110,4 @@ haxe --main tests.TestCaseRunner --interp
 - Applying tags to tokens and being able to filter them based on a token. (This differs from classification, but a classification could be a tag).
 - Stemming of languages. (Porter stemmer would be sufficient).
 - Parts of speech tagging. (This would require stemming and POS dictionaries).
+- Wordnet support and for other languages alternatives to it

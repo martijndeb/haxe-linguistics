@@ -4,8 +4,8 @@
   "license": "MIT",
   "tags": ["cross", "linguistics", "language", "nlp", "analysis", "classification"],
   "description": "Linguistical analysis and natural language processing library for Haxe",
-  "version": "0.1.1",
-  "releasenote": "Adds Linguistics.getSupportedLanguage*",
+  "version": "0.1.2",
+  "releasenote": "Bit of refactoring",
   "contributors": ["sexybiggetje"],
   "dependencies": {
   }

@@ -8,7 +8,7 @@ class LengthBasedTokenizerDE extends LengthBasedTokenizer {
 
         super( length );
 
-        tokenExpression = ~/[^a-zA-Z0-9_\-äöüÄÖÜß]+/g;
+        tokenExpression = German.basicTokenExpression;
 
     }
 

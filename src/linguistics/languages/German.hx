@@ -6,10 +6,13 @@ import linguistics.tokenizers.tokens.IToken;
 
 class German implements ILanguage {
 
+    static public var basicTokenExpression:EReg = ~/[^a-zA-Z0-9_\-äöüÄÖÜß]+/g;
+
     public var name:String = "German";
 
     public var basicTokenizer:Class<Dynamic> = linguistics.languages.de.BasicTokenizerDE;
     public var lengthBasedTokenizer:Class<Dynamic> = linguistics.languages.de.LengthBasedTokenizerDE;
+
     public var token:Class<Dynamic> = linguistics.tokenizers.tokens.Token;
 
     public var stopwords:Array<IToken>;

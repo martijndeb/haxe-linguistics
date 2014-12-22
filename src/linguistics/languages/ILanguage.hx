@@ -9,6 +9,7 @@ interface ILanguage {
 
     var basicTokenizer:Class<Dynamic>;
     var lengthBasedTokenizer:Class<Dynamic>;
+
     var token:Class<Dynamic>;
     var stopwords:Array<IToken>;
 

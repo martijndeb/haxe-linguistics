@@ -6,7 +6,7 @@ class BasicTokenizerNL extends BasicTokenizer {
 
     public function new() {
 
-        tokenExpression = ~/[^a-zA-Z0-9_\-'âêîôûàèìòùëïöüŸáéíóúýÂÊÎÔÛÀÈÌÒÙËÏÖÜŸÁÉÍÓÚÝ]+/g;
+        tokenExpression = Dutch.basicTokenExpression;
 
     }
 
