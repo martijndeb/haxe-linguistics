@@ -5,6 +5,9 @@ import tests.TestCaseLengthBasedTokenizer;
 import tests.TestCaseDictionary;
 import tests.TestCaseLevenshteinDistance;
 
+import tests.TestCasePorterStemmerEN;
+import tests.TestCaseRegion12;
+
 class TestCaseRunner {
 
     static function main():Void {
@@ -15,6 +18,9 @@ class TestCaseRunner {
         runner.add( new TestCaseLengthBasedTokenizer() );
         runner.add( new TestCaseDictionary() );
         runner.add( new TestCaseLevenshteinDistance() );
+
+        runner.add( new TestCaseRegion12() );
+        runner.add( new TestCasePorterStemmerEN() );
 
         var success = runner.run();
 

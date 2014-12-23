@@ -15,6 +15,8 @@ class English implements ILanguage {
 
     public var token:Class<Dynamic> = linguistics.tokenizers.tokens.Token;
 
+    public var basicStemmer:Class<Dynamic> = linguistics.languages.en.PorterStemmerEN;
+
     public var stopwords:Array<IToken>;
 
     public function createTokens():Void {

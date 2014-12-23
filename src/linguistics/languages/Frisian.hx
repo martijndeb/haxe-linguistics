@@ -15,6 +15,8 @@ class Frisian implements ILanguage {
 
     public var token:Class<Dynamic> = linguistics.tokenizers.tokens.Token;
 
+    public var basicStemmer:Class<Dynamic> = null;
+
     public var stopwords:Array<IToken>;
 
     public function createTokens():Void {

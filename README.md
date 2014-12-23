@@ -91,6 +91,15 @@ classifier.train();
 trace(classifier.classify( "i am short silver" ));
 ```
 
+# Stemming #
+Currently stemming is being implemented. Stemmers follow a simple implementation, they use IStemmer.stem( 'winning' ). The basic stemmers will be used optionally during tokenization. The snippet below returns the Porter stemmer implementation for English.
+```haxe
+Linguistics.getInstance().setLanguage( English );
+var stemmer:IStemmer = Linguistics.getInstance().getBasicStemmer();
+
+trace( stemmer.stem( "consigned" ) );
+```
+
 # Tests #
 Some tests might be mising or incomplete due to the premature state of the project, but I try to keep them up to date.
 At the moment the tests run only on hx source. I try to support every output format of Haxe, but haven't compiled the tests for everything just yet.

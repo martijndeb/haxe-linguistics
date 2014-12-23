@@ -1,5 +1,6 @@
 package linguistics;
 
+import linguistics.stemmers.IStemmer;
 import linguistics.languages.ILanguage;
 import linguistics.languages.*;
 
@@ -104,6 +105,12 @@ class Linguistics {
     public function getToken( myTokenString:String, ?myDocumentIndex:Int, ?myRelativeIndex:Int ):IToken {
 
         return Type.createInstance( language.token, [myTokenString, myDocumentIndex, myRelativeIndex] );
+
+    }
+
+    public function getBasicStemmer():IStemmer {
+
+        return Type.createInstance( language.basicStemmer, [] );
 
     }
 

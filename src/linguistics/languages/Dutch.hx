@@ -15,6 +15,8 @@ class Dutch implements ILanguage {
 
     public var token:Class<Dynamic> = linguistics.tokenizers.tokens.Token;
 
+    public var basicStemmer:Class<Dynamic> = linguistics.languages.nl.PorterStemmerNL;
+
     public var stopwords:Array<IToken>;
 
     public function createTokens():Void {
