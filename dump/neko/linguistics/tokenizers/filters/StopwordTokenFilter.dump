@@ -1,0 +1,19 @@
+class linguistics.tokenizers.filters.StopwordTokenFilter implements linguistics.tokenizers.filters.ITokenFilter{
+	public new(method) : Void -> Void
+
+	 = function() = {
+	};
+
+	public filter(method) : myTokenSet : Array<linguistics.tokenizers.tokens.IToken> -> Array<linguistics.tokenizers.tokens.IToken>
+
+	 = function(myTokenSet:Array<linguistics.tokenizers.tokens.IToken>) = {
+		var filteredSet = myTokenSet;
+		if ((linguistics.Linguistics.getInstance().getLanguage().stopwords != null))filteredSet = myTokenSet.filter(function(myToken:linguistics.tokenizers.tokens.IToken) = {
+			var stopwords = linguistics.Linguistics.getInstance().getLanguage().stopwords;
+			for (stopword in stopwords.iterator()) if ((stopword.isEqualToToken(myToken,null)))return false);
+			return true;
+		}));
+		return filteredSet;
+	};
+
+}

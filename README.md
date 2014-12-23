@@ -114,6 +114,22 @@ cd src/
 haxe -main tests/TestCaseRunner.hx --interp
 ```
 
+### Building the testrunner for all targets ###
+Install JDK for hxjava. See oracle.com .
+Install mono mdk for monocs. See mono-project.com/download .
+
+Setting up dependencies:
+```
+haxelib install hxcpp
+haxelib install hxjava
+haxelib install hxcs
+```
+
+In your root (below src):
+```
+haxe build.hxml
+```
+
 # Roadmap #
 - Support for n-grams
 - Language detection

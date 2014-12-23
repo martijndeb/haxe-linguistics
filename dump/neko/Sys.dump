@@ -1,0 +1,12 @@
+class Sys{
+	static public exit(method) : code : Int -> Void
+
+	 = function(code:Int) = {
+		Sys.sys_exit(code);
+	};
+
+	static sys_exit(var) : Int -> Unknown<12>
+
+	 = neko.Lib.load("std","sys_exit",1);
+
+}

@@ -1,0 +1,41 @@
+class Reflect{
+	static public callMethod(method) : o : Dynamic -> func : Dynamic -> args : Array<Dynamic> -> Dynamic
+
+	 = function(o:Dynamic,func:Dynamic,args:Array<Dynamic>) = {
+		var a = args.__neko();
+		var n = $nargs(func);
+		if ((n > $asize(a))){
+			var a2 = $amake(n);
+			$ablit(a2,0,a,0,$asize(a));
+			a = a2;
+		});
+		return $call(func,o,a);
+	};
+
+	static public fields(method) : o : Dynamic -> Array<String>
+
+	 = function(o:Dynamic) = {
+		if (($typeof(o) != $tobject))return new Array() else {
+			var a = $objfields(o);
+			var i = 0;
+			var hasid = false;
+			var l = $asize(a);
+			while ((i < l)) {
+				var fid = a[i];
+				if ((fid == -190054693))hasid = true);
+				a[i] = new String($field(fid));
+				i ++;
+			};
+			var a1 = Array.new1(a,l);
+			if ((hasid))a1.remove("__id__"));
+			return a1;
+		});
+	};
+
+	static public isFunction(method) : f : Dynamic -> Bool
+
+	 = function(f:Dynamic) = {
+		return $typeof(f) == $tfunction;
+	};
+
+}

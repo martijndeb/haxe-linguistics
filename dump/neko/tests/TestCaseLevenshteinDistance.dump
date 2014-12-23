@@ -1,0 +1,15 @@
+class tests.TestCaseLevenshteinDistance extends haxe.unit.TestCase{
+	public new(method) : Void -> Void
+
+	 = function() = {
+		super();
+	};
+
+	public testLevenshteinDistance(method) : Void -> Void
+
+	 = function() = {
+		this.assertEquals(3,linguistics.distances.LevenshteinDistance.getDistance("kitten","sitting"),{fileName : "TestCaseLevenshteinDistance.hx",lineNumber : 9,className : "tests.TestCaseLevenshteinDistance",methodName : "testLevenshteinDistance"});
+		this.assertEquals(3,linguistics.distances.LevenshteinDistance.getDistance("Saturday","Sunday"),{fileName : "TestCaseLevenshteinDistance.hx",lineNumber : 10,className : "tests.TestCaseLevenshteinDistance",methodName : "testLevenshteinDistance"});
+	};
+
+}

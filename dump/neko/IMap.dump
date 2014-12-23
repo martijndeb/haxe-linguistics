@@ -1,0 +1,2 @@
+interface IMap<K : IMap.K,V : IMap.V>{
+}

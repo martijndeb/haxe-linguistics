@@ -1,0 +1,53 @@
+class StringTools{
+	static public startsWith(method) : s : String -> start : String -> Bool
+
+	 = function(s:String,start:String) = {
+		return s.length >= start.length && s.substr(0,start.length) == start;
+	};
+
+	static public endsWith(method) : s : String -> end : String -> Bool
+
+	 = function(s:String,end:String) = {
+		var elen = end.length;
+		var slen = s.length;
+		return slen >= elen && s.substr(slen - elen,elen) == end;
+	};
+
+	static public isSpace(method) : s : String -> pos : Int -> Bool
+
+	 = function(s:String,pos:Int) = {
+		var c = s.charCodeAt(pos);
+		return c > 8 && c < 14 || c == 32;
+	};
+
+	static public ltrim(method) : s : String -> String
+
+	 = function(s:String) = {
+		var l = s.length;
+		var r = 0;
+		while ((r < l && StringTools.isSpace(s,r))) r ++;
+		if ((r > 0))return s.substr(r,l - r) else return s);
+	};
+
+	static public rtrim(method) : s : String -> String
+
+	 = function(s:String) = {
+		var l = s.length;
+		var r = 0;
+		while ((r < l && StringTools.isSpace(s,l - r - 1))) r ++;
+		if ((r > 0))return s.substr(0,l - r) else return s);
+	};
+
+	static public trim(method) : s : String -> String
+
+	 = function(s:String) = {
+		return StringTools.ltrim(StringTools.rtrim(s));
+	};
+
+	static public replace(method) : s : String -> sub : String -> by : String -> String
+
+	 = function(s:String,sub:String,by:String) = {
+		return s.split(sub).join(by);
+	};
+
+}

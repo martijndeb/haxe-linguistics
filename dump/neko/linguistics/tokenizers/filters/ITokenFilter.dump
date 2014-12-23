@@ -1,0 +1,4 @@
+interface linguistics.tokenizers.filters.ITokenFilter{
+	public filter(method) : myTokenSet : Array<linguistics.tokenizers.tokens.IToken> -> Array<linguistics.tokenizers.tokens.IToken>;
+
+}

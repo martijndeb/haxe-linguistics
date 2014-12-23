@@ -1,0 +1,9 @@
+class linguistics.languages.de.BasicTokenizerDE extends linguistics.tokenizers.BasicTokenizer{
+	public new(method) : Void -> Void
+
+	 = function() = {
+		super();
+		this.tokenExpression = linguistics.languages.German.basicTokenExpression;
+	};
+
+}

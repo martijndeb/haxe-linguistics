@@ -6,6 +6,8 @@ class BasicTokenizerNL extends BasicTokenizer {
 
     public function new() {
 
+        super();
+
         tokenExpression = Dutch.basicTokenExpression;
 
     }

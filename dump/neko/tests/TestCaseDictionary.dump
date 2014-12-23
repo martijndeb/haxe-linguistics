@@ -1,0 +1,18 @@
+class tests.TestCaseDictionary extends haxe.unit.TestCase{
+	public new(method) : Void -> Void
+
+	 = function() = {
+		super();
+	};
+
+	public testDictionary(method) : Void -> Void
+
+	 = function() = {
+		linguistics.Linguistics.getInstance().setLanguage(linguistics.languages.English);
+		var dict = new linguistics.dictionaries.Dictionary(null,null);
+		dict.addDocument("A fool thinks himself to be wise, but a wise man knows himself to be a fool.");
+		this.assertEquals(17,dict.getTotalWordCount(),{fileName : "TestCaseDictionary.hx",lineNumber : 17,className : "tests.TestCaseDictionary",methodName : "testDictionary"});
+		this.assertEquals(11,dict.getWordCount(),{fileName : "TestCaseDictionary.hx",lineNumber : 18,className : "tests.TestCaseDictionary",methodName : "testDictionary"});
+	};
+
+}

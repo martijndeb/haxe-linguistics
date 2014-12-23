@@ -1,0 +1,61 @@
+class haxe.unit.TestCase{
+	public new(method) : Void -> Void
+
+	 = function() = {
+	};
+
+	public currentTest(var) : haxe.unit.TestStatus;
+
+	public setup(method) : Void -> Void
+
+	 = function() = {
+	};
+
+	public tearDown(method) : Void -> Void
+
+	 = function() = {
+	};
+
+	public print(method) : v : Dynamic -> Void
+
+	 = function(v:Dynamic) = {
+		haxe.unit.TestRunner.print(v);
+	};
+
+	public assertTrue(method) : b : Bool -> ?c : haxe.PosInfos -> Void
+
+	 = function(b:Bool,c:haxe.PosInfos = null) = {
+		this.currentTest.done = true;
+		if ((b == false)){
+			this.currentTest.success = false;
+			this.currentTest.error = "expected true but was false";
+			this.currentTest.posInfos = c;
+			throw this.currentTest;
+		});
+	};
+
+	public assertFalse(method) : b : Bool -> ?c : haxe.PosInfos -> Void
+
+	 = function(b:Bool,c:haxe.PosInfos = null) = {
+		this.currentTest.done = true;
+		if ((b == true)){
+			this.currentTest.success = false;
+			this.currentTest.error = "expected false but was true";
+			this.currentTest.posInfos = c;
+			throw this.currentTest;
+		});
+	};
+
+	public assertEquals<T : assertEquals.T>(method) : expected : assertEquals.T -> actual : assertEquals.T -> ?c : haxe.PosInfos -> Void
+
+	 = function(expected:assertEquals.T,actual:assertEquals.T,c:haxe.PosInfos = null) = {
+		this.currentTest.done = true;
+		if ((actual != expected)){
+			this.currentTest.success = false;
+			this.currentTest.error = "expected '" + Std.string(expected) + "' but was '" + Std.string(actual) + "'";
+			this.currentTest.posInfos = c;
+			throw this.currentTest;
+		});
+	};
+
+}

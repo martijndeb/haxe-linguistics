@@ -1,0 +1,35 @@
+-cp src
+-main tests/TestCaseRunner.hx
+--each
+
+-dce std
+-xml bin/haxe-linguistics.xml
+
+--next
+-D dump=pretty
+-neko bin/haxe-linguistics.n
+
+--next
+-swf bin/haxe-linguistics.swf
+
+--next
+-swf-version 8
+-swf bin/haxe-linguistics8.swf
+
+--next
+-as3 bin/as3
+
+--next
+-js bin/haxe-linguistics.js
+
+--next
+-php bin/php
+
+--next
+-cpp bin/cpp
+
+--next
+-java bin/java
+
+--next
+-cs bin/cs

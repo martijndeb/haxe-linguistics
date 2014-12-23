@@ -1,0 +1,9 @@
+class linguistics.languages.fry.LengthBasedTokenizerFRY extends linguistics.tokenizers.LengthBasedTokenizer{
+	public new(method) : ?length : Int -> Void
+
+	 = function(length:Int = null) = {
+		super(length);
+		this.tokenExpression = linguistics.languages.Frisian.basicTokenExpression;
+	};
+
+}

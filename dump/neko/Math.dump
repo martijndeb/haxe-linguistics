@@ -1,0 +1,18 @@
+class Math{
+	static public PI((default,null)) : Float;
+
+	static public NaN((default,null)) : Float;
+
+	static public POSITIVE_INFINITY((default,null)) : Float;
+
+	static public NEGATIVE_INFINITY((default,null)) : Float;
+
+	static public min(method) : a : Float -> b : Float -> Float
+
+	 = function(a:Float,b:Float) = {
+		if ((a < b))return a else if (($isnan(a)))return a else return b));
+	};
+
+	static __rnd(var) : Unknown<4>;
+
+}

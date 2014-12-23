@@ -1,0 +1,13 @@
+class linguistics.languages.de.PorterStemmerDE implements linguistics.stemmers.IStemmer{
+	public new(method) : Void -> Void
+
+	 = function() = {
+	};
+
+	public stem(method) : myString : String -> String
+
+	 = function(myString:String) = {
+		return myString;
+	};
+
+}

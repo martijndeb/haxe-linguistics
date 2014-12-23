@@ -1,0 +1,35 @@
+class linguistics.tokenizers.LengthBasedTokenizer implements linguistics.tokenizers.ITokenizer{
+	public new(method) : ?length : Int -> Void
+
+	 = function(length:Int = null) = {
+		this.tokenLength = 1;
+		this.tokenExpression = new EReg("[^a-zA-Z0-9_\\-]+","g");
+		if ((length != null))this.tokenLength = length);
+	};
+
+	tokenExpression(var) : EReg;
+
+	tokenLength(var) : Int;
+
+	public tokenize(method) : myString : String -> Array<linguistics.tokenizers.tokens.IToken>
+
+	 = function(myString:String) = {
+		var tokenList = this.tokenExpression.split(myString).filter(linguistics.utils.StringUtility.isEmpty).join(" ");
+		var tokenSet = [];
+		var tokenIndex = -1;
+		var i = 0;
+		while ((i < tokenList.length)) {
+			tokenSet.push(cast (linguistics.Linguistics.getInstance().getToken(tokenList.substr(i,this.tokenLength),++ tokenIndex,tokenIndex),linguistics.tokenizers.tokens.IToken));
+			i += this.tokenLength;
+		};
+		return tokenSet;
+	};
+
+	public applyFilter(method) : myTokenSet : Array<linguistics.tokenizers.tokens.IToken> -> myTokenFilter : Class<linguistics.tokenizers.filters.ITokenFilter> -> Array<linguistics.tokenizers.tokens.IToken>
+
+	 = function(myTokenSet:Array<linguistics.tokenizers.tokens.IToken>,myTokenFilter:Class<linguistics.tokenizers.filters.ITokenFilter>) = {
+		var tokenFilter = Type.createInstance(myTokenFilter,[]);
+		return tokenFilter.filter(myTokenSet);
+	};
+
+}

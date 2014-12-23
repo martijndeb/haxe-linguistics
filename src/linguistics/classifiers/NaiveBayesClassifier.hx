@@ -15,6 +15,8 @@ class NaiveBayesClassifier implements IClassifier {
     private var words:haxe.ds.StringMap<haxe.ds.StringMap<Int>> = new haxe.ds.StringMap<haxe.ds.StringMap<Int>>();
     private var labels:haxe.ds.StringMap<haxe.ds.StringMap<Int>> = new haxe.ds.StringMap<haxe.ds.StringMap<Int>>();
 
+    public function new() { }
+
     public function addDocument( myDocument:String, myLabel:String ):Void {
 
         var labelList:Array<String> = documents.exists( myLabel ) ? documents.get( myLabel ) : new Array<String>() ;

@@ -1,0 +1,15 @@
+class tests.TestCaseRunner{
+	static main(method) : Void -> Void
+
+	 = function() = {
+		var runner = new haxe.unit.TestRunner();
+		runner.add(new tests.TestCaseBasicTokenizer());
+		runner.add(new tests.TestCaseLengthBasedTokenizer());
+		runner.add(new tests.TestCaseDictionary());
+		runner.add(new tests.TestCaseLevenshteinDistance());
+		runner.add(new tests.TestCaseRegion12());
+		var success = runner.run();
+		Sys.exit(if ((success))0 else 1));
+	};
+
+}

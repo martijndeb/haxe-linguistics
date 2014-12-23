@@ -1,0 +1,35 @@
+class linguistics.languages.English implements linguistics.languages.ILanguage{
+	public new(method) : Void -> Void
+
+	 = function() = {
+		this.basicStemmer = cast linguistics.languages.en.PorterStemmerEN;
+		this.token = cast linguistics.tokenizers.tokens.Token;
+		this.lengthBasedTokenizer = cast linguistics.tokenizers.LengthBasedTokenizer;
+		this.basicTokenizer = cast linguistics.tokenizers.BasicTokenizer;
+		this.name = "English";
+	};
+
+	public name(var) : String;
+
+	public basicTokenizer(var) : Class<Dynamic>;
+
+	public lengthBasedTokenizer(var) : Class<Dynamic>;
+
+	public token(var) : Class<Dynamic>;
+
+	public basicStemmer(var) : Class<Dynamic>;
+
+	public stopwords(var) : Array<linguistics.tokenizers.tokens.IToken>;
+
+	public createTokens(method) : Void -> Void
+
+	 = function() = {
+		var tokenizer = Type.createInstance(this.basicTokenizer,[]);
+		this.stopwords = tokenizer.tokenize("a about after all also am an and another any are as at be" + "because been before being between both but by came can" + "come could did do each for from get got has had" + "he have her here him himself his how if in into" + "is it like make many me might more most much must" + "my never now of on only or other our out over" + "said same see should since some still such take than" + "that the their them then there these they this those" + "through to too under up very was way we well were" + "what where which while who with would you your");
+	};
+
+	static public basicTokenExpression(var) : EReg
+
+	 = new EReg("[^a-zA-Z0-9_\\-]+","g");
+
+}

@@ -1,0 +1,29 @@
+class linguistics.stemmers.ConsonantsMarker{
+	public new(method) : myVowels : Array<String> -> Void
+
+	 = function(myVowels:Array<String>) = {
+		this.vowels = [];
+		this.vowels = myVowels;
+	};
+
+	vowels(var) : Array<String>;
+
+	public mark(method) : myString : String -> String
+
+	 = function(myString:String) = {
+		myString = myString.toLowerCase();
+		if ((myString.substr(0,1) == "y"))myString = "Y" + myString.substr(1,null));
+		var pos = 1;
+		while ((pos < myString.length)) {
+			if ((this.vowels.indexOf(myString.substr(pos - 1,1),null) > -1 && myString.substr(pos,1) == "y"))myString = myString.substr(0,pos) + "Y" + myString.substr(pos + 1,null));
+			if ((pos + 1 < myString.length && this.vowels.indexOf(myString.substr(pos - 1,1),null) > -1 && this.vowels.indexOf(myString.substr(pos + 1,1),null) > -1 && (myString.substr(pos,1) == "u" || myString.substr(pos,1) == "i" || myString.substr(pos,1) == "y"))){
+				var upper = myString.substr(pos,1).toUpperCase();
+				myString = myString.substr(0,pos) + upper + myString.substr(pos + 1,null);
+			});
+			myString = myString.split("qu").join("qU");
+			pos ++;
+		};
+		return myString;
+	};
+
+}

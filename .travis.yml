@@ -1,4 +1,4 @@
-language: php
+language: c
 
 # Install Haxe before running the test.
 before_script:
@@ -14,4 +14,3 @@ script:
 
 notifications:
   irc: "irc.oceanius.com#dev"
-  email: false

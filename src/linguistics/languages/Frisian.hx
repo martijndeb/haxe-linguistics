@@ -19,6 +19,8 @@ class Frisian implements ILanguage {
 
     public var stopwords:Array<IToken>;
 
+    public function new() { }
+
     public function createTokens():Void {
 
         var tokenizer:ITokenizer = Type.createInstance( basicTokenizer, [] );

@@ -1,0 +1,38 @@
+class tests.TestCaseLengthBasedTokenizer extends haxe.unit.TestCase{
+	public new(method) : Void -> Void
+
+	 = function() = {
+		super();
+	};
+
+	public testTokenizeEnglish(method) : Void -> Void
+
+	 = function() = {
+		linguistics.Linguistics.getInstance().setLanguage(linguistics.languages.English);
+		var tokenizer = linguistics.Linguistics.getInstance().getLengthBasedTokenizer(null);
+		this.assertEquals("T h e   t r a i n   h a s   a r r i v e d   o n   t h e   2 n d   s t a t i o n",tokenizer.tokenize("The train has arrived on the 2nd station.").map(function(v:linguistics.tokenizers.tokens.IToken) = {
+			return v.toString();
+		}).join(" "),{fileName : "TestCaseLengthBasedTokenizer.hx",lineNumber : 18,className : "tests.TestCaseLengthBasedTokenizer",methodName : "testTokenizeEnglish"});
+	};
+
+	public testTokenizeDutch(method) : Void -> Void
+
+	 = function() = {
+		linguistics.Linguistics.getInstance().setLanguage(linguistics.languages.Dutch);
+		var tokenizer = linguistics.Linguistics.getInstance().getLengthBasedTokenizer(null);
+		this.assertEquals("D e   t r e i n   i s   g e a r r i v e e r d   o p   h e t   2 e   s t a t i o n",tokenizer.tokenize("De trein is gearriveerd op het 2e station.").map(function(v:linguistics.tokenizers.tokens.IToken) = {
+			return v.toString();
+		}).join(" "),{fileName : "TestCaseLengthBasedTokenizer.hx",lineNumber : 32,className : "tests.TestCaseLengthBasedTokenizer",methodName : "testTokenizeDutch"});
+	};
+
+	public testTokenizeGerman(method) : Void -> Void
+
+	 = function() = {
+		linguistics.Linguistics.getInstance().setLanguage(linguistics.languages.German);
+		var tokenizer = linguistics.Linguistics.getInstance().getLengthBasedTokenizer(null);
+		this.assertEquals("W i e   g e h t s t   d i r   J o h a n n",tokenizer.tokenize("Wie gehtst dir, Johann?").map(function(v:linguistics.tokenizers.tokens.IToken) = {
+			return v.toString();
+		}).join(" "),{fileName : "TestCaseLengthBasedTokenizer.hx",lineNumber : 46,className : "tests.TestCaseLengthBasedTokenizer",methodName : "testTokenizeGerman"});
+	};
+
+}

@@ -10,6 +10,8 @@ class BasicTokenizer implements ITokenizer {
 
     private var tokenExpression:EReg = ~/[^a-zA-Z0-9_\-]+/g;
 
+    public function new() { }
+
     public function tokenize( myString:String ):Array<IToken> {
 
         var tokenList:Array<String> = tokenExpression.split( myString ).filter( StringUtility.isEmpty );

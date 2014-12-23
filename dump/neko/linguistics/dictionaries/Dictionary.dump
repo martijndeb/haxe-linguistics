@@ -1,0 +1,86 @@
+class linguistics.dictionaries.Dictionary{
+	public new(method) : ?doNormalizeTokens : Bool -> ?myTokenizer : linguistics.tokenizers.ITokenizer -> Void
+
+	 = function(doNormalizeTokens:Bool = null,myTokenizer:linguistics.tokenizers.ITokenizer = null) = {
+		this.totalWordCount = 0;
+		this.wordCount = 0;
+		this.dict = new haxe.ds.StringMap();
+		this.normalizeTokens = false;
+		if ((myTokenizer != null))this.tokenizer = myTokenizer else this.tokenizer = linguistics.Linguistics.getInstance().getBasicTokenizer());
+		if ((doNormalizeTokens))this.normalizeTokens = true);
+	};
+
+	normalizeTokens(var) : Bool;
+
+	tokenizer(var) : linguistics.tokenizers.ITokenizer;
+
+	dict(var) : haxe.ds.StringMap<Int>;
+
+	wordCount(var) : Int;
+
+	totalWordCount(var) : Int;
+
+	public addDocument(method) : myDocument : String -> Void
+
+	 = function(myDocument:String) = {
+		var tokenList = this.tokenizer.tokenize(myDocument);
+		var iterator = tokenList.iterator();
+		for (token in iterator) {
+			var tokenKey;
+			if ((this.normalizeTokens))tokenKey = token.token else tokenKey = token.normalize());
+			if ((! __dollar__hmem(this.dict.h,tokenKey.__s,null))){
+				__dollar__hset(this.dict.h,tokenKey.__s,1,null);
+				this.wordCount ++;
+			} else {
+				var value = __dollar__hget(this.dict.h,tokenKey.__s,null) + 1;
+				__dollar__hset(this.dict.h,tokenKey.__s,value,null);
+			});
+			this.totalWordCount ++;
+		};
+	};
+
+	public addTokens(method) : myTokenSet : Array<linguistics.tokenizers.tokens.IToken> -> Void
+
+	 = function(myTokenSet:Array<linguistics.tokenizers.tokens.IToken>) = {
+		for (token in myTokenSet.iterator()) {
+			var tokenKey;
+			if ((this.normalizeTokens))tokenKey = token.token else tokenKey = token.normalize());
+			if ((! __dollar__hmem(this.dict.h,tokenKey.__s,null))){
+				__dollar__hset(this.dict.h,tokenKey.__s,1,null);
+				this.wordCount ++;
+			} else {
+				var value = __dollar__hget(this.dict.h,tokenKey.__s,null) + 1;
+				__dollar__hset(this.dict.h,tokenKey.__s,value,null);
+			});
+			this.totalWordCount ++;
+		};
+	};
+
+	public getDictionaryWords(method) : Void -> Array<String>
+
+	 = function() = {
+		var wordList = new Array();
+		var iterator = this.dict.keys();
+		for (word in iterator) wordList.push(word);
+		return wordList;
+	};
+
+	public getDictionary(method) : Void -> haxe.ds.StringMap<Int>
+
+	 = function() = {
+		return this.dict;
+	};
+
+	public getWordCount(method) : Void -> Int
+
+	 = function() = {
+		return this.wordCount;
+	};
+
+	public getTotalWordCount(method) : Void -> Int
+
+	 = function() = {
+		return this.totalWordCount;
+	};
+
+}

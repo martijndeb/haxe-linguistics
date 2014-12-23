@@ -1,0 +1,29 @@
+class linguistics.tokenizers.BasicTokenizer implements linguistics.tokenizers.ITokenizer{
+	public new(method) : Void -> Void
+
+	 = function() = {
+		this.tokenExpression = new EReg("[^a-zA-Z0-9_\\-]+","g");
+	};
+
+	tokenExpression(var) : EReg;
+
+	public tokenize(method) : myString : String -> Array<linguistics.tokenizers.tokens.IToken>
+
+	 = function(myString:String) = {
+		var tokenList = this.tokenExpression.split(myString).filter(linguistics.utils.StringUtility.isEmpty);
+		var tokenSet = [];
+		var tokenIndex = -1;
+		tokenSet = Lambda.array(tokenList.map(function(tokenString:String) = {
+			return cast (linguistics.Linguistics.getInstance().getToken(tokenString,++ tokenIndex,tokenIndex),linguistics.tokenizers.tokens.IToken);
+		}));
+		return tokenSet;
+	};
+
+	public applyFilter(method) : myTokenSet : Array<linguistics.tokenizers.tokens.IToken> -> myTokenFilter : Class<linguistics.tokenizers.filters.ITokenFilter> -> Array<linguistics.tokenizers.tokens.IToken>
+
+	 = function(myTokenSet:Array<linguistics.tokenizers.tokens.IToken>,myTokenFilter:Class<linguistics.tokenizers.filters.ITokenFilter>) = {
+		var tokenFilter = Type.createInstance(myTokenFilter,[]);
+		return tokenFilter.filter(myTokenSet);
+	};
+
+}
