@@ -1,4 +1,0 @@
-interface linguistics.stemmers.IStemmer{
-	public stem(method) : myString : String -> String;
-
-}

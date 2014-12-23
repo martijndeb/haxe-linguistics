@@ -1,6 +1,0 @@
-interface linguistics.tokenizers.ITokenizer{
-	public tokenize(method) : myString : String -> Array<linguistics.tokenizers.tokens.IToken>;
-
-	public applyFilter(method) : myTokenSet : Array<linguistics.tokenizers.tokens.IToken> -> myTokenFilter : Class<linguistics.tokenizers.filters.ITokenFilter> -> Array<linguistics.tokenizers.tokens.IToken>;
-
-}

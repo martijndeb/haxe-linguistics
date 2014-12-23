@@ -1,9 +1,0 @@
-class linguistics.languages.nl.BasicTokenizerNL extends linguistics.tokenizers.BasicTokenizer{
-	public new(method) : Void -> Void
-
-	 = function() = {
-		super();
-		this.tokenExpression = linguistics.languages.Dutch.basicTokenExpression;
-	};
-
-}

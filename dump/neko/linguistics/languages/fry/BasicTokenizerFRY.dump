@@ -1,9 +1,0 @@
-class linguistics.languages.fry.BasicTokenizerFRY extends linguistics.tokenizers.BasicTokenizer{
-	public new(method) : Void -> Void
-
-	 = function() = {
-		super();
-		this.tokenExpression = linguistics.languages.Frisian.basicTokenExpression;
-	};
-
-}

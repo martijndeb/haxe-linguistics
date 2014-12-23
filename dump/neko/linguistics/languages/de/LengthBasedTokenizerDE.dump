@@ -1,9 +1,0 @@
-class linguistics.languages.de.LengthBasedTokenizerDE extends linguistics.tokenizers.LengthBasedTokenizer{
-	public new(method) : ?length : Int -> Void
-
-	 = function(length:Int = null) = {
-		super(length);
-		this.tokenExpression = linguistics.languages.German.basicTokenExpression;
-	};
-
-}
