@@ -11,3 +11,7 @@ before_script:
 # Run the test!
 script:
   - haxe src/tests/travis.hxml
+
+notifications:
+  irc: "irc.oceanius.com#dev"
+  email: false
