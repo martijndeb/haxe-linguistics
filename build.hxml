@@ -22,6 +22,9 @@
 --next
 -js bin/haxe-linguistics.js
 
+#--next
+#-python bin/haxe-linguistics.py
+
 --next
 -php bin/php
 

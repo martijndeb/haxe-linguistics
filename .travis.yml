@@ -1,4 +1,4 @@
-language: c
+language: php
 
 # Install Haxe before running the test.
 before_script:

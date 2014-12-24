@@ -3,7 +3,7 @@
 
 --each
 
--dce std
+-dce no
 -xml bin/haxe-linguistics.xml
 
 --next
@@ -21,6 +21,10 @@
 
 --next
 -php bin/php
+-cmd php bin/php/index.php
+
+#--next
+#-python bin/haxe-linguistics.py
 
 --next
 -D dump=pretty
