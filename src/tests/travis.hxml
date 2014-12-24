@@ -27,6 +27,10 @@
 #-python bin/haxe-linguistics.py
 
 --next
+-cpp bin/cpp
+-cmd bin/cpp/TestCaseRunner
+
+--next
 -D dump=pretty
 -neko bin/haxe-linguistics.n
 -cmd neko bin/haxe-linguistics.n

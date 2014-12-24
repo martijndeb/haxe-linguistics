@@ -2,7 +2,7 @@
 -main tests/TestCaseRunner.hx
 --each
 
--dce std
+-dce no
 -xml bin/haxe-linguistics.xml
 
 --next
