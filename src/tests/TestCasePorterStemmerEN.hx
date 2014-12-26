@@ -29,7 +29,7 @@ class TestCasePorterStemmerEN extends haxe.unit.TestCase {
         this.assertEquals( "consolatori", stemmer.stem( "consolatory" ) );
         this.assertEquals( "console", stemmer.stem( "console" ) );
         this.assertEquals( "consol", stemmer.stem( "consoled" ) );
-        this.assertEquals( "consoles", stemmer.stem( "consoles" ) );
+        this.assertEquals( "console", stemmer.stem( "consoles" ) );
         this.assertEquals( "consolid", stemmer.stem( "consolidate" ) );
         this.assertEquals( "consolid", stemmer.stem( "consolidated" ) );
         this.assertEquals( "consolid", stemmer.stem( "consolidating" ) );

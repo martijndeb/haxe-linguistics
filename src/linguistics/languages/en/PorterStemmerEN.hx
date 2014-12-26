@@ -124,12 +124,21 @@ class PorterStemmerEN implements IStemmer {
 
             }
 
-        } else if ( StringTools.endsWith( stem, "es" ) || StringTools.endsWith( stem, "ss" ) ) {
+        } else if ( StringTools.endsWith( stem, "ss" ) ) {
 
             return stem;
 
-        } else if ( StringTools.endsWith( stem, "s") &&
+        } else if ( StringTools.endsWith( stem, "s" ) &&
                     vowels.indexOf( stem.substr( stem.length - 2, 1) ) < 0 ) {
+
+            stem = stem.substr( 0, -1 );
+
+        } else if ( StringTools.endsWith( stem, "s" ) &&
+                    vowels.indexOf( stem.substr( stem.length - 2, 1) ) > -1 &&
+                    (
+                        vowels.indexOf( stem.substr( stem.length - 3, 1) ) < 0 || /* Either non-vowel or double vowel */
+                        stem.substr( stem.length - 3, 1) == stem.substr( stem.length - 2, 1)
+                    ) ) {
 
             stem = stem.substr( 0, -1 );
 
@@ -208,7 +217,9 @@ class PorterStemmerEN implements IStemmer {
 
         var stem:String = myString;
 
-        if ( stem.length > 2 && vowels.indexOf( stem.substr( stem.length - 2, 1 ) ) < 0 && stem.toLowerCase().substr( stem.length - 1) == "y" ) {
+        if ( stem.length > 2 &&
+            vowels.indexOf( stem.substr( stem.length - 2, 1 ) ) < 0 &&
+            stem.toLowerCase().substr( stem.length - 1) == "y" ) {
 
             stem = stem.substr( 0, -1 ) + "i";
 
@@ -318,7 +329,7 @@ class PorterStemmerEN implements IStemmer {
         } else if ( StringTools.endsWith( R1, "li" ) &&
                     li_endings.indexOf( stem.substr( stem.length - 3, 1 ) ) > -1 ) {
 
-            stem = stem.substr( 0, -3 );
+            stem = stem.substr( 0, -2 );
 
         }
 

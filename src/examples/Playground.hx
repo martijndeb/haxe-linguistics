@@ -41,7 +41,7 @@ class Playground
         trace( "Expect: R1: harist, R2: ist" );
         trace( stemmer.stem( "eucharist" ) );*/
 
-        trace( stemmer.stem( "knackeries" ) );
+        trace( stemmer.stem( "knightly" ) );
 
     }
 }
