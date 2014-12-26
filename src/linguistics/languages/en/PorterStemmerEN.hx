@@ -464,19 +464,24 @@ class PorterStemmerEN implements IStemmer {
     private function step5( myString:String, R1:String, R2:String ):String {
 
         var stem:String = myString;
-
-        var lIndex:Int = R2.lastIndexOf( "l" );
-        if ( lIndex > -1 && StringTools.endsWith( stem.substr( 0, -( R2.length ) ), "l" ) == true ) {
-
-            stem = StringUtility.replaceLastOccurance( stem, "l", "" );
-
-        }
-
         var tempString:String = "";
-        var eIndex:Int = R2.lastIndexOf( "e" );
-        if ( eIndex > -1 ) {
 
-            tempString = stem.substr( 0, -( R2.length - eIndex ) );
+        if (R2 != null && R2 != "") {
+
+            var lIndex:Int = R2.lastIndexOf( "l" );
+            var r2length:Int = R2.length;
+            if ( lIndex > -1 && StringTools.endsWith( stem.substr( 0, -( r2length ) ), "l" ) == true ) {
+
+                stem = StringUtility.replaceLastOccurance( stem, "l", "" );
+
+            }
+
+            var eIndex:Int = R2.lastIndexOf( "e" );
+            if ( eIndex > -1 ) {
+
+                tempString = stem.substr( 0, -( R2.length - eIndex ) );
+
+            }
 
         }
         // elseif below breaks "knackeries"
