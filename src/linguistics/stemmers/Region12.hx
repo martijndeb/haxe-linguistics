@@ -7,6 +7,9 @@ package linguistics.stemmers;
  */
 class Region12 {
 
+    // if word starts with a value from this array, set the remainder to R1
+    public var startsWithR1RemainderModifier:Array<String> = new Array<String>();
+
     private var vowels:Array<String> = [];
 
     public function new( myVowels:Array<String> ) {
@@ -24,6 +27,17 @@ class Region12 {
         }
 
         myString = myString.toLowerCase();
+
+        var it:Iterator<String> = startsWithR1RemainderModifier.iterator();
+        for ( r1mod in it ) {
+
+            if ( myString.substr( 0, r1mod.length ) == r1mod ) {
+
+                return r1mod;
+
+            }
+
+        }
 
         var pos:Int = 1;
         while ( pos < myString.length ) {

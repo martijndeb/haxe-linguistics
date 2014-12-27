@@ -16,7 +16,34 @@ class PorterStemmerEN implements IStemmer {
     private var doubles:Array<String> = [ 'bb', 'dd', 'ff', 'gg', 'mm', 'nn', 'pp', 'rr', 'tt' ];
     private var li_endings:Array<String> = [ 'c', 'd', 'e', 'g', 'h', 'k', 'm', 'n', 'r', 't' ];
 
-    public function new() { }
+    private var exceptions:haxe.ds.StringMap<String> = new haxe.ds.StringMap<String>();
+
+    public function new() {
+
+        exceptions.set( "skis", "skt" );
+        exceptions.set( "skies", "sky" );
+        exceptions.set( "dying", "die" );
+        exceptions.set( "lying", "lie" );
+        exceptions.set( "tying", "tie" );
+        exceptions.set( "idly", "idl" );
+        exceptions.set( "gently", "gentl" );
+        exceptions.set( "ugly", "ugli" );
+        exceptions.set( "early", "earli" );
+        exceptions.set( "only", "onli" );
+        exceptions.set( "singly", "singl" );
+
+        // don't change invariant
+        exceptions.set( "news", "" );
+        exceptions.set( "sky", "" );
+        exceptions.set( "howe", "" );
+
+        // don't change they are singular
+        exceptions.set( "atlas", "" );
+        exceptions.set( "cosmos", "" );
+        exceptions.set( "bias", "" );
+        exceptions.set( "andes", "" );
+
+    }
 
     public function stem( myString:String ):String {
 
@@ -30,10 +57,25 @@ class PorterStemmerEN implements IStemmer {
 
         stem = stem.toLowerCase();
 
-        var consonants:ConsonantsMarker = new ConsonantsMarker( vowels );
-        var regions:Region12 = new Region12( vowels );
+        if ( exceptions.exists( stem ) ) {
 
-        stem = consonants.mark( stem );
+            var exception:String = exceptions.get( stem );
+
+            if ( exception == "" ) { // return self if found in exceptions but empty
+
+                return stem;
+
+            }
+
+            return exception;
+
+        }
+
+        //var consonants:ConsonantsMarker = new ConsonantsMarker( vowels );
+        var regions:Region12 = new Region12( vowels );
+        regions.startsWithR1RemainderModifier = [ "gener", "commun", "arsen" ];
+
+        //stem = consonants.mark( stem );
 
         var R1:String = regions.getRegion1( stem );
         var R2:String = regions.getRegion2( stem, R1 );
@@ -466,7 +508,7 @@ class PorterStemmerEN implements IStemmer {
         var stem:String = myString;
         var tempString:String = "";
 
-        if (R2 != null && R2 != "") {
+        if ( R2 != null && R2 != "" ) {
 
             var lIndex:Int = R2.lastIndexOf( "l" );
             var r2length:Int = R2.length;

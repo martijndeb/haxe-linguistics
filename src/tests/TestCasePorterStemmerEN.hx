@@ -92,6 +92,11 @@ class TestCasePorterStemmerEN extends haxe.unit.TestCase {
         this.assertEquals( "knopp", stemmer.stem( "knopp" ) );
         this.assertEquals( "knot", stemmer.stem( "knot" ) );
         this.assertEquals( "knot", stemmer.stem( "knots" ) );
+
+        // test exceptions
+        this.assertEquals( "gentl", stemmer.stem( "gently" ) );
+        this.assertEquals( "sky", stemmer.stem( "skies" ) );
+        this.assertEquals( "atlas", stemmer.stem( "atlas" ) );
     }
 
 
