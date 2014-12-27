@@ -4,7 +4,7 @@ language: php
 before_script:
   - sudo apt-get update                                             # run update before installing anything
   - sudo apt-get install python-software-properties -y --force-yes  # for the next command
-  - sudo add-apt-repository ppa:eyecreate/haxe                      # add the ubuntu ppa that contains haxe
+  - sudo add-apt-repository -y ppa:eyecreate/haxe                   # add the ubuntu ppa that contains haxe
   - sudo apt-get update                                             # pull info from ppa
   - sudo apt-get install haxe -y --force-yes                        # install haxe (and neko)
   - sudo apt-get install gcc-multilib g++-multilib -y --force-yes   # VM is 64bit but hxcpp builds 32bit
