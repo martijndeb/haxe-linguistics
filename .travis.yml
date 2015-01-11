@@ -6,8 +6,7 @@ before_script:
   - sudo apt-get install python-software-properties -y --force-yes  # for the next command
   - sudo add-apt-repository -y ppa:eyecreate/haxe                   # add the ubuntu ppa that contains haxe
   - sudo apt-get update                                             # pull info from ppa
-  - sudo apt-get install haxe -y --force-yes                        # install haxe (and neko)
-  - sudo apt-get install gcc-multilib g++-multilib -y --force-yes   # VM is 64bit but hxcpp builds 32bit
+  - sudo apt-get install haxe gcc-multilib g++-multilib -y --force-yes   # VM is 64bit but hxcpp builds 32bit
   - mkdir ~/haxelib                                                 # create a folder for installing haxelib
   - haxelib setup ~/haxelib
   - haxelib install hxcpp
@@ -17,4 +16,8 @@ script:
   - haxe src/tests/travis.hxml
 
 notifications:
-  irc: "irc.oceanius.com#dev"
+  irc:
+    channels:
+      - "irc.oceanius.com#dev"
+    on_success: change
+    on_failure: always
