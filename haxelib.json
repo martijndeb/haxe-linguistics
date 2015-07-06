@@ -1,5 +1,6 @@
 {
   "name": "haxe-linguistics",
+  "classPath": "src",
   "url" : "https://github.com/sexybiggetje/haxe-linguistics/",
   "license": "MIT",
   "tags": ["cross", "linguistics", "language", "nlp", "analysis", "classification"],
