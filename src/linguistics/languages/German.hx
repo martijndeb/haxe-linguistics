@@ -12,14 +12,26 @@ class German implements ILanguage {
 
     public var basicTokenizer:Class<Dynamic> = linguistics.languages.de.BasicTokenizerDE;
     public var lengthBasedTokenizer:Class<Dynamic> = linguistics.languages.de.LengthBasedTokenizerDE;
+    public var boundaryTokenizer:Class<Dynamic> = linguistics.tokenizers.BoundaryTokenizer;
 
     public var token:Class<Dynamic> = linguistics.tokenizers.tokens.Token;
+    public var boundaryToken:Class<Dynamic> = linguistics.tokenizers.tokens.BoundaryToken;
 
     public var basicStemmer:Class<Dynamic> = linguistics.languages.de.PorterStemmerDE;
 
     public var stopwords:Array<IToken>;
 
+    public var sentenceBoundaries:Array<String>;
+
     public function new() { }
+
+    public function createBoundaries():Void {
+
+        sentenceBoundaries = new Array<String>( );
+        sentenceBoundaries.push( "!" );
+        sentenceBoundaries.push( "." );
+
+    }
 
     public function createTokens():Void {
 

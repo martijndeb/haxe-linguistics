@@ -5,8 +5,8 @@
   "license": "MIT",
   "tags": ["cross", "linguistics", "language", "nlp", "analysis", "classification"],
   "description": "Linguistical analysis and natural language processing library for Haxe",
-  "version": "0.1.2",
-  "releasenote": "Bit of refactoring, adds first implementation of a Porter stemmer for English and stubs for others. Restructured applications and examples.",
+  "version": "0.2.0",
+  "releasenote": "Added corcordance analysis, sentence boundaries, BoundaryTokenizer and BoundaryToken.",
   "contributors": ["sexybiggetje"],
   "dependencies": {
   }

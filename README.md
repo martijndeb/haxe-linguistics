@@ -23,9 +23,9 @@ haxelib git haxe-linguistics https://github.com/sexybiggetje/haxe-linguistics/
 ```
 
 ## Running your application ##
-Example applications have been included in the src/examples folder.
+Example applications have been included in the examples folder.
 ```
-haxe -main my.namespace.Application -lib haxe-linguisticts --interp
+haxe -main my.namespace.Application -cp src --interp
 ```
 
 ## Supported languages ##

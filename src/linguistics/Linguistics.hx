@@ -80,6 +80,7 @@ class Linguistics {
 
         }
 
+        language.createBoundaries();
         language.createTokens();
 
     }
@@ -102,9 +103,21 @@ class Linguistics {
 
     }
 
+    public function getBoundaryTokenizer( ):ITokenizer {
+
+        return Type.createInstance( language.boundaryTokenizer, [ ] );
+
+    }
+
     public function getToken( myTokenString:String, ?myDocumentIndex:Int, ?myRelativeIndex:Int ):IToken {
 
         return Type.createInstance( language.token, [myTokenString, myDocumentIndex, myRelativeIndex] );
+
+    }
+
+    public function getBoundaryToken( myTokenString:String, ?myDocumentIndex:Int, ?myRelativeIndex:Int ):IToken {
+
+        return Type.createInstance( language.boundaryToken, [myTokenString, myDocumentIndex, myRelativeIndex] );
 
     }
 

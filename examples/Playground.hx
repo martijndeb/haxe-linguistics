@@ -20,28 +20,10 @@ class Playground
     static public function main():Void {
 
         Linguistics.getInstance().setLanguage( English );
+        var tokenizer:ITokenizer = Linguistics.getInstance().getBoundaryTokenizer();
 
-        var stemmer:IStemmer = Linguistics.getInstance().getBasicStemmer();
-
-        /*trace( "Expect: R1: iful, R2: ul" );
-        trace( stemmer.stem( "beautiful" ) );
-
-        trace( "Expect: R1: y, R2:" );
-        trace( stemmer.stem( "beauty" ) );
-
-        trace( "Expect: R1:, R2:" );
-        trace( stemmer.stem( "beau" ) );
-
-        trace( "Expect: R1: imadversion, R2: adversion" );
-        trace( stemmer.stem( "animadversion" ) );
-
-        trace( "Expect: R1: kled, R2:" );
-        trace( stemmer.stem( "sprinkled" ) );
-
-        trace( "Expect: R1: harist, R2: ist" );
-        trace( stemmer.stem( "eucharist" ) );*/
-
-        trace( stemmer.stem( "knightly" ) );
+        trace( cast(tokenizer.tokenize( "A man walked down the street. A car crashed into the wall! The man witnissed a massacre." )[0], linguistics.tokenizers.tokens.BoundaryToken).childTokens);
+        trace(tokenizer.tokenize( "A man walked down the street, a car crashed into the wall! The man witnissed a massacre" ));
 
     }
 }

@@ -12,14 +12,26 @@ class Dutch implements ILanguage {
 
     public var basicTokenizer:Class<Dynamic> = linguistics.languages.nl.BasicTokenizerNL;
     public var lengthBasedTokenizer:Class<Dynamic> = linguistics.languages.nl.LengthBasedTokenizerNL;
+    public var boundaryTokenizer:Class<Dynamic> = linguistics.tokenizers.BoundaryTokenizer;
 
     public var token:Class<Dynamic> = linguistics.tokenizers.tokens.Token;
+    public var boundaryToken:Class<Dynamic> = linguistics.tokenizers.tokens.BoundaryToken;
 
     public var basicStemmer:Class<Dynamic> = linguistics.languages.nl.PorterStemmerNL;
 
     public var stopwords:Array<IToken>;
 
+    public var sentenceBoundaries:Array<String>;
+
     public function new() { }
+
+    public function createBoundaries():Void {
+
+        sentenceBoundaries = new Array<String>( );
+        sentenceBoundaries.push( "!" );
+        sentenceBoundaries.push( "." );
+
+    }
 
     public function createTokens():Void {
 
