@@ -18,7 +18,7 @@ class TestCaseBoundaryTokenizer extends haxe.unit.TestCase {
         var tokenizer:ITokenizer = Linguistics.getInstance().getBoundaryTokenizer();
 
         this.assertEquals(
-            3,
+            2,
             tokenizer.tokenize( "A man walked down the street. A car crashed into the wall! The man witnissed a massacre." ).length
         );
 
@@ -35,7 +35,7 @@ class TestCaseBoundaryTokenizer extends haxe.unit.TestCase {
         var tokenizer:ITokenizer = Linguistics.getInstance().getBoundaryTokenizer();
 
         this.assertEquals(
-            3,
+            2,
             tokenizer.tokenize( "Een man liep over straat. Een auto reed tegen een muur! De man zag een bloedbad." ).length
         );
 
@@ -52,7 +52,7 @@ class TestCaseBoundaryTokenizer extends haxe.unit.TestCase {
         var tokenizer:ITokenizer = Linguistics.getInstance().getBoundaryTokenizer();
 
         this.assertEquals(
-            3,
+            2,
             tokenizer.tokenize( "Ein Mann ging die Strasse hinunter. Ein Auto stürzte in eine Wand! Der Mann sah ein Blutbad." ).length
         );
 

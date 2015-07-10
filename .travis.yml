@@ -1,12 +1,10 @@
-language: php
+language: haxe
+haxe:
+  - "3.2.0"
+  - development
 
 # Install Haxe before running the test.
 before_script:
-  - sudo apt-get update                                             # run update before installing anything
-  - sudo apt-get install python-software-properties -y --force-yes  # for the next command
-  - sudo add-apt-repository -y ppa:eyecreate/haxe                   # add the ubuntu ppa that contains haxe
-  - sudo apt-get update                                             # pull info from ppa
-  - sudo apt-get install haxe gcc-multilib g++-multilib -y --force-yes   # VM is 64bit but hxcpp builds 32bit
   - mkdir ~/haxelib                                                 # create a folder for installing haxelib
   - haxelib setup ~/haxelib
   - haxelib install hxcpp
