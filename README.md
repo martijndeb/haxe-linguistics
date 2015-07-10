@@ -110,8 +110,7 @@ At the moment the tests run only on hx source. I try to support every output for
 Quickest way is to use haxe in interpreter mode
 
 ```
-cd src/
-haxe -main tests/TestCaseRunner.hx --interp
+haxe -cp src -main tests.TestCaseRunner --interp
 ```
 
 ### Building the testrunner for all targets ###
@@ -131,10 +130,12 @@ haxe build.hxml
 ```
 
 # Roadmap #
+- *in progress* Boundary tokenization
+- *in progress* Concordance analysis
 - Support for n-grams
 - Language detection
-- Nested tokenization allowing tokens to have a parent and children. (Opening doors for a Sentence or quotation token).
-- Applying tags to tokens and being able to filter them based on a token. (This differs from classification, but a classification could be a tag).
-- Stemming of languages. (Porter stemmer would be sufficient).
+- *in progress* Nested tokenization allowing tokens to have a parent and children. (Opening doors for a Sentence or quotation token).
+- *in progress* Applying tags to tokens and being able to filter them based on a token. (This differs from classification, but a classification could be a tag).
+- *in progress* Stemming of languages. (Porter stemmer would be sufficient).
 - Parts of speech tagging. (This would require stemming and POS dictionaries).
 - Wordnet support and for other languages alternatives to it

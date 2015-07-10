@@ -1,11 +1,10 @@
 language: haxe
 haxe:
-  - "3.2.0"
+  #- "3.2.0" temp disabled bocause of hxcpp error on travis
   - development
 
-# Install Haxe before running the test.
 before_script:
-  - mkdir ~/haxelib                                                 # create a folder for installing haxelib
+  - mkdir ~/haxelib
   - haxelib setup ~/haxelib
   - haxelib install hxcpp
 
