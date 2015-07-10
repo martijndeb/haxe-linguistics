@@ -21,10 +21,9 @@
 
 --next
 -php bin/php
--cmd php bin/php/index.php
 
-#--next
-#-python bin/haxe-linguistics.py
+--next
+-python bin/haxe-linguistics.py
 
 --next
 -cpp bin/cpp
