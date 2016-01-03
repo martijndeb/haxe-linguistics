@@ -10,12 +10,25 @@ import linguistics.tokenizers.tokens.IToken;
 // Todo: trainToken method can be optimized
 class NaiveBayesClassifier implements IClassifier {
 
+    public var ratioLowerBoundary:Float = 0.95;
+    public var ratioUpperBoundary:Float = 1.05;
+
     private var tokenizer:ITokenizer;
     private var documents:haxe.ds.StringMap<Array<String>> = new haxe.ds.StringMap<Array<String>>();
     private var words:haxe.ds.StringMap<haxe.ds.StringMap<Int>> = new haxe.ds.StringMap<haxe.ds.StringMap<Int>>();
     private var labels:haxe.ds.StringMap<haxe.ds.StringMap<Int>> = new haxe.ds.StringMap<haxe.ds.StringMap<Int>>();
 
-    public function new() { }
+    public function new( ?myRatioLowerBoundary:Float, ?myRatioUpperBoundary:Float ) {
+
+        if ( myRatioLowerBoundary != null ) {
+            ratioLowerBoundary = myRatioLowerBoundary;
+        }
+
+        if ( myRatioUpperBoundary != null ) {
+            ratioUpperBoundary = myRatioUpperBoundary;
+        }
+
+    }
 
     public function addDocument( myDocument:String, myLabel:String ):Void {
 
@@ -96,7 +109,7 @@ class NaiveBayesClassifier implements IClassifier {
 
             var ratio:Float = probs[i].probability / probs[i].pc;
 
-            if (ratio < 0.95 || ratio > 1.05) {
+            if (ratio < ratioLowerBoundary || ratio > ratioUpperBoundary) {
 
                 matchesPc = false;
 

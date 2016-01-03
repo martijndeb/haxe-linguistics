@@ -14,15 +14,15 @@ import linguistics.classifiers.NaiveBayesClassifier;
 import linguistics.tokenizers.filters.StopwordTokenFilter;
 import linguistics.tokenizers.tokens.IToken;
 import linguistics.utils.BasicStringBuilder;
+import linguistics.analyzers.ConcordanceAnalyzer;
 
 class Playground
 {
     static public function main():Void {
 
         Linguistics.getInstance().setLanguage( English );
-        var tokenizer:ITokenizer = Linguistics.getInstance().getBoundaryTokenizer();
+        var tokenizer:ITokenizer = Linguistics.getInstance().getBasicTokenizer();
 
-        trace( cast(tokenizer.tokenize( "A man walked down the street. A car crashed into the wall! The man witnissed a massacre." )[0], linguistics.tokenizers.tokens.BoundaryToken).childTokens);
         trace(tokenizer.tokenize( "A man walked down the street, a car crashed into the wall! The man witnissed a massacre" ));
 
     }
