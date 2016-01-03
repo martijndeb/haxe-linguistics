@@ -3,9 +3,7 @@ package tests;
 import linguistics.Linguistics;
 import linguistics.tokenizers.ITokenizer;
 import linguistics.tokenizers.tokens.IToken;
-import linguistics.languages.Dutch;
-import linguistics.languages.English;
-import linguistics.languages.German;
+import linguistics.languages.*;
 
 using Lambda;
 class TestCaseLengthBasedTokenizer extends haxe.unit.TestCase {
@@ -46,6 +44,20 @@ class TestCaseLengthBasedTokenizer extends haxe.unit.TestCase {
         this.assertEquals(
             "W i e   g e h t s t   d i r   J o h a n n",
             tokenizer.tokenize( "Wie gehtst dir, Johann?" ).map(
+                function(v):String { return v.toString(); }
+            ).join(" ")
+        );
+
+    }
+
+     public function testTokenizeFrisian():Void {
+
+        Linguistics.getInstance().setLanguage( Frisian );
+        var tokenizer:ITokenizer = Linguistics.getInstance().getLengthBasedTokenizer();
+
+        this.assertEquals(
+            "B û t e r   b r e a   e n   g r i e n e   t s i i s",
+            tokenizer.tokenize( "Bûter, brea, en griene tsiis" ).map(
                 function(v):String { return v.toString(); }
             ).join(" ")
         );

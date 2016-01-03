@@ -130,7 +130,6 @@ haxe build.hxml
 ```
 
 # Roadmap #
-- *in progress* Boundary tokenization
 - *in progress* Concordance analysis
 - Support for n-grams
 - Language detection

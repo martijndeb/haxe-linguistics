@@ -4,9 +4,7 @@ import linguistics.Linguistics;
 import linguistics.tokenizers.ITokenizer;
 import linguistics.tokenizers.tokens.IToken;
 import linguistics.tokenizers.filters.StopwordTokenFilter;
-import linguistics.languages.Dutch;
-import linguistics.languages.English;
-import linguistics.languages.German;
+import linguistics.languages.*;
 
 using Lambda;
 class TestCaseBasicTokenizer extends haxe.unit.TestCase {
@@ -48,6 +46,20 @@ class TestCaseBasicTokenizer extends haxe.unit.TestCase {
         this.assertEquals(
             "Das Eisen schmieden solange es heiß ist",
             tokenizer.tokenize( "Das Eisen schmieden, solange es heiß ist" ).map(
+                function(v):String { return v.toString(); }
+            ).join(" ")
+        );
+
+    }
+
+     public function testTokenizeFrisian():Void {
+
+        Linguistics.getInstance().setLanguage( Frisian );
+        var tokenizer:ITokenizer = Linguistics.getInstance().getBasicTokenizer();
+
+        this.assertEquals(
+            "Bûter brea en griene tsiis wa dat net sizze kin is gjin oprjochte Fries",
+            tokenizer.tokenize( "Bûter, brea, en griene tsiis; wa dat net sizze kin, is gjin oprjochte Fries" ).map(
                 function(v):String { return v.toString(); }
             ).join(" ")
         );
@@ -97,6 +109,23 @@ class TestCaseBasicTokenizer extends haxe.unit.TestCase {
 
         this.assertEquals(
             "Eisen schmieden solange heiß",
+
+            tokenSet.map(
+                function(v):String { return v.toString(); }
+            ).join(" ")
+        );
+
+    }
+
+     public function testTokenizeFilteredFrisian():Void {
+
+        Linguistics.getInstance().setLanguage( Frisian );
+        var tokenizer:ITokenizer = Linguistics.getInstance().getBasicTokenizer();
+        var tokenSet:Array<IToken> = tokenizer.tokenize( "Bûter, brea, en griene tsiis; wa dat dat net sizze kin, is gjin oprjochte Fries" );
+        tokenSet = tokenizer.applyFilter( tokenSet, StopwordTokenFilter );
+
+        this.assertEquals(
+            "Bûter brea griene tsiis wa sizze oprjochte Fries",
 
             tokenSet.map(
                 function(v):String { return v.toString(); }
