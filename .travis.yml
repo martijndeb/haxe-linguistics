@@ -1,30 +1,27 @@
 language: haxe
 os:
-  - linux
-  - osx
-
+- linux
+- osx
 sudo: false
 haxe:
-  #- "3.2.0" temp disabled bocause of hxcpp error on travis
-  - development
-  - "3.2.1"
-
+- development
+- 3.2.1
 matrix:
   allow_failures:
-    - haxe: 3.2.1
-
+  - haxe: 3.2.1
 before_script:
-  - mkdir ~/haxelib
-  - yes | haxelib setup ~/haxelib
-  - yes | haxelib install hxcpp
-
-# Run the test!
+- mkdir ~/haxelib
+- yes | haxelib setup ~/haxelib
+- yes | haxelib install hxcpp
 script:
-  - haxe src/tests/travis.hxml
-
+- haxe src/tests/travis.hxml
 notifications:
   irc:
     channels:
-      - "irc.oceanius.com#dev"
+    - irc.oceanius.com#dev
+    on_success: change
+    on_failure: always
+  slack:
+    secure: KTdW1lnaIENmRYqpS9PRQXBeaHMomBXKriUcuDa6hVhAh5IOYEaH8Uo9viRcp0JJT3mU6OB5Few9S9riHrpIPl5Nq/Ip6NzOnzbM4/6+tqo7WK3IuNsDMrYW2afrx65W3Y7ESBBcA01LEcPWywFYbyg284JRFRUUaKWxiwL+b1g=
     on_success: change
     on_failure: always
