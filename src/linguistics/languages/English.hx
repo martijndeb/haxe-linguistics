@@ -1,37 +1,20 @@
 package linguistics.languages;
 
-import linguistics.languages.ILanguage;
+import linguistics.languages.LanguageBase;
 import linguistics.tokenizers.ITokenizer;
-import linguistics.tokenizers.tokens.IToken;
 
-class English implements ILanguage {
+class English extends LanguageBase {
 
-    static public var basicTokenExpression:EReg = ~/[^a-zA-Z0-9_\-]+/g;
+    public function new() { super(); }
 
-    public var name:String = "English";
+    override private function setProperties():Void {
 
-    public var basicTokenizer:Class<Dynamic> = linguistics.tokenizers.BasicTokenizer;
-    public var lengthBasedTokenizer:Class<Dynamic> = linguistics.tokenizers.LengthBasedTokenizer;
-
-    public var token:Class<Dynamic> = linguistics.tokenizers.tokens.Token;
-
-    public var basicStemmer:Class<Dynamic> = linguistics.languages.en.PorterStemmerEN;
-
-    public var stopwords:Array<IToken>;
-
-    public var sentenceBoundaries:Array<String>;
-
-    public function new() { }
-
-    public function createBoundaries():Void {
-
-        sentenceBoundaries = new Array<String>( );
-        sentenceBoundaries.push( "!" );
-        sentenceBoundaries.push( "." );
+        name = "English";
+        basicStemmer = linguistics.languages.en.PorterStemmerEN;
 
     }
 
-    public function createTokens():Void {
+    override public function createTokens():Void {
 
         var tokenizer:ITokenizer = Type.createInstance( basicTokenizer, [] );
 

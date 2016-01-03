@@ -1,37 +1,23 @@
 package linguistics.languages;
 
-import linguistics.languages.ILanguage;
+import linguistics.languages.LanguageBase;
 import linguistics.tokenizers.ITokenizer;
-import linguistics.tokenizers.tokens.IToken;
 
-class Dutch implements ILanguage {
+class Dutch extends LanguageBase {
 
-    static public var basicTokenExpression:EReg = ~/[^a-zA-Z0-9_\-'âêîôûàèìòùëïöüŸáéíóúýÂÊÎÔÛÀÈÌÒÙËÏÖÜŸÁÉÍÓÚÝ]+/g;
+    public function new() { super(); }
 
-    public var name:String = "Dutch";
+    override private function setProperties():Void {
 
-    public var basicTokenizer:Class<Dynamic> = linguistics.languages.nl.BasicTokenizerNL;
-    public var lengthBasedTokenizer:Class<Dynamic> = linguistics.languages.nl.LengthBasedTokenizerNL;
+        basicTokenExpression = ~/[^a-zA-Z0-9_\-'âêîôûàèìòùëïöüŸáéíóúýÂÊÎÔÛÀÈÌÒÙËÏÖÜŸÁÉÍÓÚÝ]+/g;
 
-    public var token:Class<Dynamic> = linguistics.tokenizers.tokens.Token;
+        name = "Dutch";
 
-    public var basicStemmer:Class<Dynamic> = linguistics.languages.nl.PorterStemmerNL;
-
-    public var stopwords:Array<IToken>;
-
-    public var sentenceBoundaries:Array<String>;
-
-    public function new() { }
-
-    public function createBoundaries():Void {
-
-        sentenceBoundaries = new Array<String>( );
-        sentenceBoundaries.push( "!" );
-        sentenceBoundaries.push( "." );
+        basicStemmer = linguistics.languages.nl.PorterStemmerNL;
 
     }
 
-    public function createTokens():Void {
+    override public function createTokens():Void {
 
         var tokenizer:ITokenizer = Type.createInstance( basicTokenizer, [] );
 

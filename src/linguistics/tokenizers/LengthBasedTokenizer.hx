@@ -1,5 +1,6 @@
 package linguistics.tokenizers;
 
+import linguistics.Linguistics;
 import linguistics.tokenizers.ITokenizer;
 import linguistics.tokenizers.tokens.IToken;
 import linguistics.tokenizers.filters.ITokenFilter;
@@ -18,6 +19,8 @@ class LengthBasedTokenizer implements ITokenizer {
             tokenLength = length;
 
         }
+
+        tokenExpression = Linguistics.getInstance().getLanguage().basicTokenExpression;
 
     }
 

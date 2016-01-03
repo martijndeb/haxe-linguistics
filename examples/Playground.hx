@@ -20,7 +20,7 @@ class Playground
 {
     static public function main():Void {
 
-        Linguistics.getInstance().setLanguage( English );
+        Linguistics.getInstance().setLanguage( Dutch );
         var tokenizer:ITokenizer = Linguistics.getInstance().getBasicTokenizer();
 
         trace(tokenizer.tokenize( "A man walked down the street, a car crashed into the wall! The man witnissed a massacre" ));

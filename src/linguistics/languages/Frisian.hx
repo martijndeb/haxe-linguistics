@@ -1,37 +1,23 @@
 package linguistics.languages;
 
-import linguistics.languages.ILanguage;
+import linguistics.languages.LanguageBase;
 import linguistics.tokenizers.ITokenizer;
-import linguistics.tokenizers.tokens.IToken;
 
-class Frisian implements ILanguage {
+class Frisian extends LanguageBase {
 
-    static public var basicTokenExpression:EReg = ~/[^a-zA-Z0-9_\-âêîôûáéíóúÂÊÎÔÛÁÉÍÓÚ]+/g;
+    public function new() { super(); }
 
-    public var name:String = "Frisian";
+    override private function setProperties():Void {
 
-    public var basicTokenizer:Class<Dynamic> = linguistics.languages.fry.BasicTokenizerFRY;
-    public var lengthBasedTokenizer:Class<Dynamic> = linguistics.languages.fry.LengthBasedTokenizerFRY;
+        basicTokenExpression = ~/[^a-zA-Z0-9_\-âêîôûáéíóúÂÊÎÔÛÁÉÍÓÚ]+/g;
 
-    public var token:Class<Dynamic> = linguistics.tokenizers.tokens.Token;
+        name = "Frisian";
 
-    public var basicStemmer:Class<Dynamic> = null;
-
-    public var stopwords:Array<IToken>;
-
-    public var sentenceBoundaries:Array<String>;
-
-    public function new() { }
-
-    public function createBoundaries():Void {
-
-        sentenceBoundaries = new Array<String>( );
-        sentenceBoundaries.push( "!" );
-        sentenceBoundaries.push( "." );
+        basicStemmer = linguistics.languages.fry.PorterStemmerFRY;
 
     }
 
-    public function createTokens():Void {
+    override public function createTokens():Void {
 
         var tokenizer:ITokenizer = Type.createInstance( basicTokenizer, [] );
 

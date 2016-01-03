@@ -17,6 +17,8 @@ interface ILanguage {
 
     var sentenceBoundaries:Array<String>;
 
+    var basicTokenExpression:EReg;
+
     function createBoundaries():Void;
     function createTokens():Void;
 

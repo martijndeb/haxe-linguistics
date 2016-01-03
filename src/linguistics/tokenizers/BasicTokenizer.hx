@@ -1,5 +1,6 @@
 package linguistics.tokenizers;
 
+import linguistics.Linguistics;
 import linguistics.tokenizers.ITokenizer;
 import linguistics.tokenizers.tokens.IToken;
 import linguistics.tokenizers.filters.ITokenFilter;
@@ -10,7 +11,11 @@ class BasicTokenizer implements ITokenizer {
 
     private var tokenExpression:EReg = ~/[^a-zA-Z0-9_\-]+/g;
 
-    public function new() { }
+    public function new() {
+
+        tokenExpression = Linguistics.getInstance().getLanguage().basicTokenExpression;
+
+    }
 
     public function tokenize( myString:String ):Array<IToken> {
 
