@@ -6,7 +6,6 @@
 -xml bin/haxe-linguistics.xml
 
 --next
--D dump=pretty
 -neko bin/haxe-linguistics.n
 
 --next
@@ -22,8 +21,8 @@
 --next
 -js bin/haxe-linguistics.js
 
-#--next
-#-python bin/haxe-linguistics.py
+--next
+-python bin/haxe-linguistics.py
 
 --next
 -php bin/php
