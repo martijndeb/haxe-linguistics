@@ -2,7 +2,6 @@ package tests;
 
 import tests.TestCaseBasicTokenizer;
 import tests.TestCaseLengthBasedTokenizer;
-import tests.TestCaseBoundaryTokenizer;
 import tests.TestCaseDictionary;
 import tests.TestCaseLevenshteinDistance;
 
@@ -19,14 +18,13 @@ class TestCaseRunner {
 
         runner.add( new TestCaseBasicTokenizer() );
         runner.add( new TestCaseLengthBasedTokenizer() );
-        runner.add( new TestCaseBoundaryTokenizer() );
         runner.add( new TestCaseDictionary() );
         runner.add( new TestCaseLevenshteinDistance() );
 
         runner.add( new TestCaseRegion12() );
         runner.add( new TestCasePorterStemmerEN() );
 
-        //runner.add( new TestCaseConcordanceAnalysis() );
+        runner.add( new TestCaseConcordanceAnalysis() );
 
         var success = runner.run();
 

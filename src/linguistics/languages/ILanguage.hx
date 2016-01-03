@@ -9,12 +9,10 @@ interface ILanguage {
 
     var basicTokenizer:Class<Dynamic>;
     var lengthBasedTokenizer:Class<Dynamic>;
-    var boundaryTokenizer:Class<Dynamic>;
 
     var basicStemmer:Class<Dynamic>;
 
     var token:Class<Dynamic>;
-    var boundaryToken:Class<Dynamic>;
     var stopwords:Array<IToken>;
 
     var sentenceBoundaries:Array<String>;

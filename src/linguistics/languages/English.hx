@@ -12,10 +12,8 @@ class English implements ILanguage {
 
     public var basicTokenizer:Class<Dynamic> = linguistics.tokenizers.BasicTokenizer;
     public var lengthBasedTokenizer:Class<Dynamic> = linguistics.tokenizers.LengthBasedTokenizer;
-    public var boundaryTokenizer:Class<Dynamic> = linguistics.tokenizers.BoundaryTokenizer;
 
     public var token:Class<Dynamic> = linguistics.tokenizers.tokens.Token;
-    public var boundaryToken:Class<Dynamic> = linguistics.tokenizers.tokens.BoundaryToken;
 
     public var basicStemmer:Class<Dynamic> = linguistics.languages.en.PorterStemmerEN;
 

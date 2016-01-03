@@ -12,10 +12,8 @@ class Frisian implements ILanguage {
 
     public var basicTokenizer:Class<Dynamic> = linguistics.languages.fry.BasicTokenizerFRY;
     public var lengthBasedTokenizer:Class<Dynamic> = linguistics.languages.fry.LengthBasedTokenizerFRY;
-    public var boundaryTokenizer:Class<Dynamic> = linguistics.tokenizers.BoundaryTokenizer;
 
     public var token:Class<Dynamic> = linguistics.tokenizers.tokens.Token;
-    public var boundaryToken:Class<Dynamic> = linguistics.tokenizers.tokens.BoundaryToken;
 
     public var basicStemmer:Class<Dynamic> = null;
 
