@@ -3,11 +3,16 @@ sudo: false
 haxe:
   #- "3.2.0" temp disabled bocause of hxcpp error on travis
   - development
+  - "3.2.1"
+
+matrix:
+  allow_failures:
+    - haxe: 3.2.1
 
 before_script:
   - mkdir ~/haxelib
-  - haxelib setup ~/haxelib
-  - haxelib install hxcpp
+  - yes | haxelib setup ~/haxelib
+  - yes | haxelib install hxcpp
 
 # Run the test!
 script:
