@@ -56,8 +56,8 @@ class TestCaseLengthBasedTokenizer extends haxe.unit.TestCase {
         var tokenizer:ITokenizer = Linguistics.getInstance().getLengthBasedTokenizer();
 
         this.assertEquals(
-            "B û t e r   b r e a   e n   g r i e n e   t s i i s",
-            tokenizer.tokenize( "Bûter, brea, en griene tsiis" ).map(
+            "B u t e r   b r e a   e n   g r i e n e   t s i i s",
+            tokenizer.tokenize( "Buter, brea, en griene tsiis" ).map(
                 function(v):String { return v.toString(); }
             ).join(" ")
         );

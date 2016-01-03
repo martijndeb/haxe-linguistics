@@ -33,7 +33,8 @@ class LengthBasedTokenizer implements ITokenizer {
         var i = 0;
         while ( i < tokenList.length ) {
 
-            tokenSet.push( cast( Linguistics.getInstance().getToken( tokenList.substr( i, tokenLength ), ++tokenIndex, tokenIndex ), IToken ) );
+            var theToken:IToken = cast( Linguistics.getInstance().getToken( haxe.Utf8.sub( tokenList, i, tokenLength ), ++tokenIndex, tokenIndex ), IToken );
+            tokenSet.push( theToken );
 
             i += tokenLength;
 
