@@ -1,8 +1,8 @@
 language: haxe
+sudo: false
 haxe:
   #- "3.2.0" temp disabled bocause of hxcpp error on travis
-  #- development
-  - "3.2.1"
+  - development
 
 before_script:
   - mkdir ~/haxelib
