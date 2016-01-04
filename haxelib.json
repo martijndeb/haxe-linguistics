@@ -6,7 +6,7 @@
   "tags": ["cross", "linguistics", "language", "nlp", "analysis", "classification"],
   "description": "Linguistical analysis and natural language processing library for Haxe",
   "version": "0.2.0",
-  "releasenote": "Added corcordance analysis, sentence boundaries.",
+  "releasenote": "Added sentence boundaries, cleanud up and refactored a bit. We now have a stable base to develop on.",
   "contributors": ["sexybiggetje"],
   "dependencies": {
   }
