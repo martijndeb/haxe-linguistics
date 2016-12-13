@@ -62,7 +62,8 @@ class Linguistics {
             Dutch,
             English,
             Frisian,
-            German
+            German,
+            Heligolandic
 
         ];
 

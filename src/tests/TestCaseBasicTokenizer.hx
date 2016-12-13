@@ -66,6 +66,20 @@ class TestCaseBasicTokenizer extends haxe.unit.TestCase {
 
     }
 
+     public function testTokenizeHeligolandic():Void {
+
+        Linguistics.getInstance().setLanguage( Heligolandic );
+        var tokenizer:ITokenizer = Linguistics.getInstance().getBasicTokenizer();
+
+        this.assertEquals(
+            "Alle Mensken sen frai likwörti en med de sallowski Rechten geboorn Djo hoa Ferstant en Geweeten medfin'n en skul arker as Bruurs uundjintreed",
+            tokenizer.tokenize( "Alle Mensken sen frai, likwörti en med de sallowski Rechten geboorn. Djo hoa Ferstant en Geweeten medfin'n en skul arker as Bruurs uundjintreed" ).map(
+                function(v):String { return v.toString(); }
+            ).join(" ")
+        );
+
+    }
+
     public function testTokenizeFilteredEnglish():Void {
 
         Linguistics.getInstance().setLanguage( English );
@@ -126,6 +140,23 @@ class TestCaseBasicTokenizer extends haxe.unit.TestCase {
 
         this.assertEquals(
             "Bûter brea griene tsiis wa sizze oprjochte Fries",
+
+            tokenSet.map(
+                function(v):String { return v.toString(); }
+            ).join(" ")
+        );
+
+    }
+
+     public function testTokenizeFilteredHeligolandic():Void {
+
+        Linguistics.getInstance().setLanguage( Heligolandic );
+        var tokenizer:ITokenizer = Linguistics.getInstance().getBasicTokenizer();
+        var tokenSet:Array<IToken> = tokenizer.tokenize( "Alle Mensken sen frai, likwörti en med de sallowski Rechten geboorn. Djo hoa Ferstant en Geweeten medfin'n en skul arker as Bruurs uundjintreed" );
+        tokenSet = tokenizer.applyFilter( tokenSet, StopwordTokenFilter );
+
+        this.assertEquals(
+            "Alle Mensken sen frai likwörti en med de sallowski Rechten geboorn Djo hoa Ferstant en Geweeten medfin'n en skul arker as Bruurs uundjintreed",
 
             tokenSet.map(
                 function(v):String { return v.toString(); }
