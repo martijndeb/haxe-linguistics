@@ -9,5 +9,6 @@
   "releasenote": "Added sentence boundaries, cleanud up and refactored a bit. We now have a stable base to develop on.",
   "contributors": ["sexybiggetje"],
   "dependencies": {
+    "hx3compat": "1.0.0"
   }
 }

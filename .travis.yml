@@ -13,6 +13,7 @@ before_script:
 - mkdir ~/haxelib
 - yes | haxelib setup ~/haxelib
 - yes | haxelib install hxcpp
+- yes | haxelib install hx3compat
 script:
 - haxe src/tests/travis.hxml
 notifications:

@@ -1,4 +1,4 @@
 In order to run the examples, refer to the root directory and run with a classpath set to source.
 For example:
 
-haxe -cp src -main examples/ExampleNaiveBayesClassifier.hx --interp
+haxe -cp src -main examples/ExampleNaiveBayesClassifier.hx --interp --lib hx3compat
