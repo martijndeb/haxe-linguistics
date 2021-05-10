@@ -5,8 +5,6 @@ but that doesn't give me the fun of working with Haxe and picking my own layout 
 I have no formal training in linguistics, but have contributed to multiple open source projects. Kinda making things up as I need them.
 Need something? Contribute or open a ticket!
 
-[![Build Status](https://travis-ci.org/sexybiggetje/haxe-linguistics.svg?branch=master)](https://travis-ci.org/sexybiggetje/haxe-linguistics)
-
 # Usage #
 
 ## Installing ##
